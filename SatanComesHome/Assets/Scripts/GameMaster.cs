@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class GameMaster : MonoBehaviour
 {
+	[SerializeField]
 	private float timerStartValue = 60.0f;
 	private float timer = 0;
 	private int score = 0;
+
+	[SerializeField]
+	private int numberOfCollectablesToSpawn = 25;
+
+	private List<Collectable> collectables = new List<Collectable>();
 
     void Start()
     {
@@ -35,12 +41,18 @@ public class GameMaster : MonoBehaviour
 
 	private void GenerateLevel()
 	{
+		for (int x = 0; x < numberOfCollectablesToSpawn; x++)
+		{
 
+		}
+		//Randomly place X amount of objects
 	}
 
 	private void EndGame()
 	{
-
+		//Calculate score
+		
+		//Go to score screen
 	}
 
 	public void ChangeTimer(float delta)
