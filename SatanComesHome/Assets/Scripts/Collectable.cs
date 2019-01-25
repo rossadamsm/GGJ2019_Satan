@@ -13,6 +13,7 @@ public class Collectable : MonoBehaviour
 	private int pointValue;
 
 	private bool beingCarried = false;
+    public bool dropped = true;
 
 	BoxCollider2D collider;
 
@@ -28,6 +29,17 @@ public class Collectable : MonoBehaviour
 
 	}
 
+    public void Pickup(Transform anchor)
+    {
+        transform.SetParent(anchor.transform);
+        transform.position = anchor.position;
+    }
+
+    public void Drop()
+    {
+        transform.SetParent(null);
+    }
+
 	public void Interact(Transform transform)
 	{
 		if (beingCarried)
@@ -42,6 +54,8 @@ public class Collectable : MonoBehaviour
 			collider.enabled = false;
 			transform.parent = transform;
 		}
+
+        Debug.Log(beingCarried);
 
 	}
 }

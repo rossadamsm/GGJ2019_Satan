@@ -7,6 +7,9 @@ public class CharacterController : MonoBehaviour
     public Rigidbody2D rb;
     public Animator animator;
     public float speed;
+    private GameObject go;
+    //[SerializeField]
+    private Transform anchor;
 
     private SpriteRenderer spriteRenderer;
 
@@ -16,6 +19,7 @@ public class CharacterController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        anchor = GetComponentInChildren<Transform>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -23,7 +27,19 @@ public class CharacterController : MonoBehaviour
         if (collision.collider.transform.tag == "Collectable")
         {
             Collectable c = collision.collider.GetComponent<Collectable>();
-            c.Interact(transform);
+            if (c.dropped)
+                c.Pickup(anchor);
+            c.dropped = false;
+        }
+        go = collision.gameObject;
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.collider.transform.tag == "Collectable")
+        {
+            Collectable c = collision.collider.GetComponent<Collectable>();
+            c.dropped = true;
         }
     }
 
@@ -44,9 +60,13 @@ public class CharacterController : MonoBehaviour
         else
             transform.localScale = new Vector3(1, 1, 1);
 
-
-
         rb.velocity = Move * speed;
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Collectable obj = go.GetComponent<Collectable>();
+            obj.Drop();
+        }
 
         //if (Move.x < 0)
         //    spriteRenderer.flipX = true;
