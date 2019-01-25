@@ -26,6 +26,11 @@ public class CharacterController : MonoBehaviour
         else
             animator.SetBool("walk", true);
 
+        if (Move.x < 0)
+            transform.localScale = new Vector3(-1, 1, 1);
+        else
+            transform.localScale = new Vector3(1, 1, 1);
+
         rb.velocity = Move * speed;
     }
 }
