@@ -40,7 +40,7 @@ public class Collectable : MonoBehaviour
 		{
 			beingCarried = true;
 			collider.enabled = false;
-			transform.SetParent(transform);
+			transform.parent = transform;
 		}
 
 	}
