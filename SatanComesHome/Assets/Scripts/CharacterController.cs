@@ -14,6 +14,15 @@ public class CharacterController : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.transform.tag == "Collectable")
+        {
+            Collectable c = collision.collider.GetComponent<Collectable>();
+            c.Interact(transform);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -30,6 +39,8 @@ public class CharacterController : MonoBehaviour
             transform.localScale = new Vector3(-1, 1, 1);
         else
             transform.localScale = new Vector3(1, 1, 1);
+
+
 
         rb.velocity = Move * speed;
     }
