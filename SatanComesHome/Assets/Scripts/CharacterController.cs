@@ -37,9 +37,9 @@ public class CharacterController : MonoBehaviour
 
         rb.velocity = Move * speed;
 
-        if (Move.x < 0)
-            spriteRenderer.flipX = true;
-        else if (Move.x > 0)
-            spriteRenderer.flipX = false;
+        //if (Move.x < 0)
+        //    spriteRenderer.flipX = true;
+        //else if (Move.x > 0)
+        //    spriteRenderer.flipX = false;
     }
 }
