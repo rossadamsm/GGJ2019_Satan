@@ -28,17 +28,19 @@ public class Collectable : MonoBehaviour
 
 	}
 
-	public void Interact()
+	public void Interact(Transform transform)
 	{
 		if (beingCarried)
 		{
 			beingCarried = false;
 			collider.enabled = true;
+			transform.SetParent(null);
 		}
 		else
 		{
 			beingCarried = true;
 			collider.enabled = false;
+			transform.SetParent(transform);
 		}
 
 	}
