@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 95bfb3c0fd2aac942945fbc6448ed83f, type: 3}
-  m_Name: TV
+  m_Name: Cuppa
   m_EditorClassIdentifier: 
-  mySprite: {fileID: 21300000, guid: 004c010bd186d0d4091e09bd3d1fcc17, type: 3}
+  mySprite: {fileID: 21300000, guid: d61baff8d4ade1543bee6a50525dd0e9, type: 3}
   TimeToAdd: 3
-  SpeedModifier: 0.9
-  PointValue: 10
-  Type: 
-  spriteAnimationClip: {fileID: 7400000, guid: 03b9d33a286ec2247a6124fd8752d289, type: 2}
-  animationOverrideController: {fileID: 22100000, guid: 8d312875c7ad92c4dbb57d1724aafacc,
+  SpeedModifier: 1
+  PointValue: 3
+  Type: Cuppa
+  spriteAnimationClip: {fileID: 0}
+  animationOverrideController: {fileID: 22100000, guid: bb9ad5fea5843c147b6129fc1155c504,
     type: 2}

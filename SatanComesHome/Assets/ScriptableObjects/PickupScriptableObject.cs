@@ -9,4 +9,5 @@ public class PickupScriptableObject : ScriptableObject
     public int PointValue;
     public string Type;
     public AnimationClip spriteAnimationClip;
+    public AnimatorOverrideController animationOverrideController;
 }
