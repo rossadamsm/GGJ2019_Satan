@@ -21,7 +21,7 @@ public class FinalScoreManager : MonoBehaviour
 	public AudioSource continuesound = null;
 
 
-	public string IdentityPoolId = "us-east-1:d9056a02-e0ad-4375-9849-355f95ef12d1";
+	public string IdentityPoolId = "us-east-1:e5dea157-f0fa-4276-868e-f7a55c0b1722";
 	public string CognitoIdentityRegion = RegionEndpoint.USEast1.SystemName;
 	private RegionEndpoint _CognitoIdentityRegion
 	{
@@ -38,7 +38,7 @@ public class FinalScoreManager : MonoBehaviour
 	void Start()
 	{
 		//scoreObject = GameObject.Find("ScoreObject").GetComponent<ScoreObject>();
-		scoreText.text = "Final Score: " + ScoreManager.instance.score.ToString();
+		scoreText.text = ScoreManager.instance.score.ToString();
 
 		//continuesound = GetComponent<AudioSource>();
 
