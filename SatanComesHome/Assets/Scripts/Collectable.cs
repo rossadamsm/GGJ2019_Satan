@@ -35,6 +35,7 @@ public class Collectable : MonoBehaviour
 		timeAdd = pickupObject.TimeToAdd;
 		speedModifier = pickupObject.SpeedModifier;
 		pointValue = pickupObject.PointValue;
+        type = pickupObject.Type;
         highlight.enabled = false;
 	}
 
