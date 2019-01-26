@@ -178,6 +178,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &306300369
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 306300370}
+  - component: {fileID: 306300371}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &306300370
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306300369}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -106, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1181274845}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &306300371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306300369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82d8a3848bbe4a14792816403b976c06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  areaBounds: {x: 60, y: 60}
 --- !u!1 &515263270
 GameObject:
   m_ObjectHideFlags: 0
@@ -866,12 +910,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 940553843}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1181274845}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &940553845
 MonoBehaviour:
@@ -915,10 +959,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d67e0c7420f04434199bf9b3ba47b1da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerStartValue: 5
+  timerStartValue: 60
   numberOfCollectablesToSpawn: 25
   timerText: {fileID: 515263271}
-  spawnAreas: []
+  spawnAreas:
+  - {fileID: 306300371}
+  - {fileID: 940553845}
+  collectablePrefabs:
+  - {fileID: 3928860749363336113, guid: 42b6392d19d0c5e45ba4067064b1cb5b, type: 3}
 --- !u!4 &1031023275
 Transform:
   m_ObjectHideFlags: 0
@@ -988,7 +1036,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1181274845}
   m_Layer: 0
-  m_Name: SpawnArea
+  m_Name: SpawnAreas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1005,6 +1053,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 306300370}
   - {fileID: 940553844}
   m_Father: {fileID: 0}
   m_RootOrder: 6
