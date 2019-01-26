@@ -9,7 +9,7 @@ public class SpawnArea : MonoBehaviour
 
 	public Vector2 GetPositionWithinArea()
 	{
-		return (new Vector2(Random.Range(transform.position.x - areaBounds.x / 2, transform.position.x + areaBounds.x / 2), Random.Range(transform.position.y - areaBounds.y / 2, transform.position.y + areaBounds.y / 2)));
+		return (new Vector2(Random.Range(transform.position.x - (float)((areaBounds.x / 2) * 0.6), transform.position.x + (float)((areaBounds.x / 2) * 0.6)), Random.Range(transform.position.y - (float)((areaBounds.y / 2) * 0.6), transform.position.y + (float)((areaBounds.y / 2) * 0.6))));
 	}
 
 	void OnDrawGizmos()
