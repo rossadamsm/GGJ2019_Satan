@@ -50,7 +50,7 @@ MonoBehaviour:
     value: 0
   scale:
     overrideState: 1
-    value: 1.53
+    value: 1.04
 --- !u!114 &114064373758075290
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -112,17 +112,17 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   colored:
-    overrideState: 0
+    overrideState: 1
     value: 1
   intensity:
-    overrideState: 0
-    value: 0
-  size:
-    overrideState: 0
+    overrideState: 1
     value: 1
+  size:
+    overrideState: 1
+    value: 0.72
   lumContrib:
-    overrideState: 0
-    value: 0.8
+    overrideState: 1
+    value: 0
 --- !u!114 &114317412407309836
 MonoBehaviour:
   m_ObjectHideFlags: 3
