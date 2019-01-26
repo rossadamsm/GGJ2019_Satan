@@ -23,6 +23,7 @@ public class GameMaster : MonoBehaviour
 	private PickupScriptableObject[] collectableData;
 
 	private List<Collectable> collectables = new List<Collectable>();
+    private SatanTaskManager satanTaskManager;
 
     void Start()
     {
@@ -30,7 +31,10 @@ public class GameMaster : MonoBehaviour
 
 		timer = timerStartValue;
 		GenerateLevel();
-	}
+        satanTaskManager = FindObjectOfType<SatanTaskManager>();
+        satanTaskManager.HideSpeechCloud();
+
+    }
 
     void Update()
     {
@@ -45,9 +49,14 @@ public class GameMaster : MonoBehaviour
 		//Update UI
 		timerText.text = ((int)timer).ToString();
 
-		//Scoring
-			//If target is returned
-				//Assign new target
+        //Scoring
+        //If target is returned
+        //Assign new target
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            satanTaskManager.AssignRandomItemTask(collectableData);
+        }
     }
 
 	private void TickTimer()
