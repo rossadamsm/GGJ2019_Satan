@@ -1,25 +1,28 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Collectable : MonoBehaviour
 {
-	[SerializeField]
 	private float timeAdd = 10f;
-	[SerializeField]
 	private float speedModifier = 0f;
-	[SerializeField]
 	private int pointValue;
+
+    public PickupScriptableObject pickupObject;
 
 	private bool beingCarried = false;
     public bool dropped = true;
 
-	new BoxCollider2D collider;
+	private new BoxCollider2D collider;
+	private SpriteRenderer spriteRenderer;
 
-	void Start()
+    void Awake()
 	{
 		collider = GetComponent<BoxCollider2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
+        spriteRenderer.sprite = pickupObject.mySprite;
+        timeAdd = pickupObject.TimeToAdd;
+        speedModifier = pickupObject.SpeedModifier;
+        pointValue = pickupObject.PointValue;
 	}
 
     public void Pickup(Transform anchor)
