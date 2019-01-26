@@ -31,11 +31,11 @@ public class SoundManager : MonoBehaviour
 
     public void PlayLoop(AudioClip clip)
     {
-        if (efxSource)
-            efxSource.Stop();
-        efxSource.clip = clip;
-        efxSource.loop = true;
-        efxSource.Play();
+        if (musicSource)
+            musicSource.Stop();
+        musicSource.clip = clip;
+        musicSource.loop = true;
+        musicSource.Play();
     }
 
     public void RandomizeSfx(params AudioClip[] clips)
