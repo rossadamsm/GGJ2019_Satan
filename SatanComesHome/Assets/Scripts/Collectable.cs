@@ -5,7 +5,6 @@ public class Collectable : MonoBehaviour
 	private float timeAdd = 10f;
 	private float speedModifier = 0f;
 	private int pointValue;
-	[SerializeField]
 	private string type;
 
     public PickupScriptableObject pickupObject;
@@ -34,6 +33,7 @@ public class Collectable : MonoBehaviour
 		timeAdd = pickupObject.TimeToAdd;
 		speedModifier = pickupObject.SpeedModifier;
 		pointValue = pickupObject.PointValue;
+        type = pickupObject.Type;
 	}
 
     public void Pickup(Transform anchor)

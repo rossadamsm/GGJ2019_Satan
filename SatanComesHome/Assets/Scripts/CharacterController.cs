@@ -92,7 +92,7 @@ public class CharacterController : MonoBehaviour
 
         if (Move.x < 0)
             transform.localScale = new Vector3(-1, 1, 1);
-        else
+        else if (Move.x > 0)
             transform.localScale = new Vector3(1, 1, 1);
 
         rb.velocity = Move * speed;
