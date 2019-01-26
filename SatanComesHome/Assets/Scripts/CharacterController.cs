@@ -39,7 +39,6 @@ public class CharacterController : MonoBehaviour
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
-		Debug.Log("The priest touched me");
 		if (collision.transform.tag == "Priest")
 		{
 			if (currentPickedupCollectable != null)
