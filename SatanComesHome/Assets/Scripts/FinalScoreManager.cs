@@ -15,6 +15,7 @@ public class FinalScoreManager : MonoBehaviour
 {
 	public Text scoreText;
 	public Text playerName;
+	public Text highscoreText;
 
 	//ScoreObject scoreObject;
 
@@ -38,7 +39,7 @@ public class FinalScoreManager : MonoBehaviour
 	void Start()
 	{
 		//scoreObject = GameObject.Find("ScoreObject").GetComponent<ScoreObject>();
-		scoreText.text = ScoreManager.instance.score.ToString();
+		//scoreText.text = ScoreManager.instance.score.ToString();
 
 		//continuesound = GetComponent<AudioSource>();
 
@@ -46,6 +47,8 @@ public class FinalScoreManager : MonoBehaviour
 		//InvokeButton.onClick.AddListener(() => { Invoke(); });
 
 		AWSConfigs.HttpClient = AWSConfigs.HttpClientOption.UnityWebRequest;
+
+		PopulateHighscores();
 	}
 
 	#region private members
@@ -139,6 +142,44 @@ public class FinalScoreManager : MonoBehaviour
 			   }
 			   );
 		}
+	}
+
+	public void PopulateHighscores()
+	{
+		//Debug.Log("{\"name\" : \"" + playerName.text + "\", \"score\" : " + "}");
+		//ResultText.text = "Invoking '" + FunctionNameText.text + " function in Lambda... \n";
+		Client.InvokeAsync(new Amazon.Lambda.Model.InvokeRequest()
+		{
+			FunctionName = "GetHighscores",
+			Payload = "{ \"scores\": 10}"
+		},
+		(responseObject) =>
+		{
+			//ResultText.text += "\n";
+			if (responseObject.Exception == null)
+			{
+				string response = Encoding.ASCII.GetString(responseObject.Response.Payload.ToArray());
+
+				Debug.Log(response);
+				//highscorePanel
+				string scoreString = response.Substring(response.IndexOf('[') + 1, response.LastIndexOf(']') - response.IndexOf('[') - 1);
+				string[] scores = scoreString.Split(',');
+
+				highscoreText.text = "HIGHSCORES:\n";
+
+				for (int i = 0; i < scores.Length; i++)
+				{
+					highscoreText.text += (i + 1).ToString() + ") " + scores[i].Substring(scores[i].IndexOf('"') + 1, scores[i].LastIndexOf('\\') - scores[i].IndexOf('\"') - 1) + "\n";
+				}
+
+				//SceneManager.LoadScene("MainMenu");
+			}
+			else
+			{
+				Debug.Log(responseObject.Exception + "\n");
+			}
+		}
+		);
 	}
 }
 
