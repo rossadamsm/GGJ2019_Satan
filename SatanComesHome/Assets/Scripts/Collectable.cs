@@ -8,7 +8,7 @@ public class Collectable : MonoBehaviour
 	[SerializeField]
 	private string type;
 
-    //public PickupScriptableObject pickupObject;
+    public PickupScriptableObject pickupObject;
 
 	private bool beingCarried = false;
     public bool dropped = true;
@@ -21,7 +21,10 @@ public class Collectable : MonoBehaviour
 		collider = GetComponent<BoxCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        
+        if (pickupObject)
+		{
+			Init(pickupObject);
+		}
 	}
 
 	public void Init(PickupScriptableObject pickupObject)
