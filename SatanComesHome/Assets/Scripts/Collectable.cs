@@ -21,10 +21,18 @@ public class Collectable : MonoBehaviour
 		collider = GetComponent<BoxCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        spriteRenderer.sprite = pickupObject.mySprite;
-        timeAdd = pickupObject.TimeToAdd;
-        speedModifier = pickupObject.SpeedModifier;
-        pointValue = pickupObject.PointValue;
+        if (pickupObject)
+		{
+			Init(pickupObject);
+		}
+	}
+
+	public void Init(PickupScriptableObject pickupObject)
+	{
+		spriteRenderer.sprite = pickupObject.mySprite;
+		timeAdd = pickupObject.TimeToAdd;
+		speedModifier = pickupObject.SpeedModifier;
+		pointValue = pickupObject.PointValue;
 	}
 
     public void Pickup(Transform anchor)

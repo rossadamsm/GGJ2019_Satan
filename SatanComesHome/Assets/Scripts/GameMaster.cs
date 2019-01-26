@@ -18,7 +18,9 @@ public class GameMaster : MonoBehaviour
 	[SerializeField]
 	private SpawnArea[] spawnAreas;
 	[SerializeField]
-	private GameObject[] collectablePrefabs;
+	private GameObject collectablePrefab;
+	[SerializeField]
+	private PickupScriptableObject[] collectableData;
 
 	private List<Collectable> collectables = new List<Collectable>();
 
@@ -61,8 +63,10 @@ public class GameMaster : MonoBehaviour
 	{
 		for (int x = 0; x < numberOfCollectablesToSpawn; x++)
 		{
-			GameObject go = Instantiate(collectablePrefabs[Random.Range(0, collectablePrefabs.Length)], spawnAreas[Random.Range(0, spawnAreas.Length)].GetPositionWithinArea(), Quaternion.identity);
-			collectables.Add(go.GetComponent<Collectable>());
+			GameObject go = Instantiate(collectablePrefab, spawnAreas[Random.Range(0, spawnAreas.Length)].GetPositionWithinArea(), Quaternion.identity);
+			Collectable collectable = go.GetComponent<Collectable>();
+			collectable.Init(collectableData[Random.RandomRange(0, collectableData.Length)]);
+			collectables.Add(collectable);
 		}
 		//Randomly place X amount of objects
 	}
