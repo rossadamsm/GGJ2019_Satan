@@ -33,6 +33,8 @@ public class GameMaster : MonoBehaviour
 
 	public static GameMaster instance;
 
+	bool gameOver = false;
+
 	void Awake()
 	{
 		if (instance == null)
@@ -79,17 +81,20 @@ public class GameMaster : MonoBehaviour
 
     void Update()
     {
-		TickTimer();
-
-		//If timer ticks all the way down, end game
-		if (timer <= 0)
+		if (!gameOver)
 		{
-			EndGame();
-		}
+			TickTimer();
 
-		//Update UI
-		timerText.text = ((int)timer).ToString();
-		scoreText.text = (score).ToString();
+			//If timer ticks all the way down, end game
+			if (timer <= 0)
+			{
+				EndGame();
+			}
+
+			//Update UI
+			timerText.text = ((int)timer).ToString();
+			scoreText.text = (score).ToString();
+		}
 
 		//Scoring
 		//If target is returned
@@ -121,8 +126,10 @@ public class GameMaster : MonoBehaviour
 	private void EndGame()
 	{
 		//Calculate score
+		ScoreManager.instance.score = score;
 
 		//Go to score screen
+		gameOver = true;
 		SceneManager.LoadScene("GameOver");
 	}
 
