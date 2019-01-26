@@ -61,8 +61,10 @@ public class Collectable : MonoBehaviour
 
     public void Pickup(Transform anchor)
     {
-        if(SoundManager.instance != null)
-            SoundManager.instance.PlayDropSound();
+		if (SoundManager.instance != null)
+		{
+			SoundManager.instance.PlayDropSound();
+		}
         beingCarried = true;
         transform.SetParent(anchor.transform);
         transform.position = anchor.position;

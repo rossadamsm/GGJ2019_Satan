@@ -23,6 +23,8 @@ public class CharacterController : MonoBehaviour
 	public bool inHell = false;
 	[SerializeField]
 	PostPManager ppManager;
+	[SerializeField]
+	Transform hellTeleportPoint;
 
 	// Start is called before the first frame update
 	void Start()
@@ -60,6 +62,15 @@ public class CharacterController : MonoBehaviour
 	//        Debug.Log("Dropped object" + gameObject.name);
 	//    }
 	//}
+
+	private void OnCollision2D(Collision2D collision)
+	{
+		if (collision.transform.tag == "Priest")
+		{
+			currentPickedupCollectable.Drop();
+			transform.position = hellTeleportPoint.position;
+		}
+	}
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
