@@ -83,6 +83,7 @@ public class Collectable : MonoBehaviour
 
 	public void PlaceInHell()
 	{
+		Debug.Log("Place in hell");
 		GameMaster gm = FindObjectOfType<GameMaster>();
 		gm.ChangeTimer(pickupObject.TimeToAdd);
 		gm.score += pickupObject.PointValue;
