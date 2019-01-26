@@ -1540,6 +1540,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Satan
       objectReference: {fileID: 0}
+    - target: {fileID: 2378131195222857058, guid: 12259891736ab6943a9fc6f6a28d4f5f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 6537686124046072883, guid: 12259891736ab6943a9fc6f6a28d4f5f,
         type: 3}
       propertyPath: m_LocalPosition.x
