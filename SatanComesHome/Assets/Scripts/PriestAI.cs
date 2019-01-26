@@ -9,7 +9,6 @@ public enum PriestState
 
 public class PriestAI : MonoBehaviour
 {
-
     public PriestState myState;
     public float speed = 1;
 
