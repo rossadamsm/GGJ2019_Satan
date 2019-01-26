@@ -14,6 +14,9 @@ public class Collectable : MonoBehaviour
 
 	private new BoxCollider2D collider;
 	private SpriteRenderer spriteRenderer;
+	private new Animation animation;
+
+
     public cakeslice.Outline highlight;
 
     void Awake()
@@ -21,6 +24,7 @@ public class Collectable : MonoBehaviour
 		collider = GetComponent<BoxCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         highlight = GetComponent<cakeslice.Outline>();
+        animation = GetComponent<Animation>();
 
         if (pickupObject)
 		{
@@ -36,6 +40,12 @@ public class Collectable : MonoBehaviour
 		speedModifier = pickupObject.SpeedModifier;
 		pointValue = pickupObject.PointValue;
         type = pickupObject.Type;
+
+        if (pickupObject.spriteAnimationClip != null)
+        {
+            animation.clip = pickupObject.spriteAnimationClip;
+            animation.Play();
+        }
         highlight.enabled = false;
 	}
 
@@ -51,7 +61,8 @@ public class Collectable : MonoBehaviour
 
     public void Pickup(Transform anchor)
     {
-        SoundManager.instance.PlayDropSound();
+        if(SoundManager.instance != null)
+            SoundManager.instance.PlayDropSound();
         beingCarried = true;
         transform.SetParent(anchor.transform);
         transform.position = anchor.position;

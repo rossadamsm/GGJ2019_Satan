@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95bfb3c0fd2aac942945fbc6448ed83f, type: 3}
+  m_Name: TV
+  m_EditorClassIdentifier: 
+  mySprite: {fileID: 21300000, guid: 004c010bd186d0d4091e09bd3d1fcc17, type: 3}
+  TimeToAdd: 3
+  SpeedModifier: 0.9
+  PointValue: 10
+  Type: 
+  spriteAnimationClip: {fileID: 7400000, guid: 03b9d33a286ec2247a6124fd8752d289, type: 2}
