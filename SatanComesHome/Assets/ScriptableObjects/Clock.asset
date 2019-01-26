@@ -16,3 +16,4 @@ MonoBehaviour:
   TimeToAdd: 5
   SpeedModifier: 0.8
   PointValue: 30
+  Type: clock

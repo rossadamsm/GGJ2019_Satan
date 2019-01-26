@@ -16,3 +16,4 @@ MonoBehaviour:
   TimeToAdd: 6
   SpeedModifier: 0.75
   PointValue: 35
+  Type: microwave

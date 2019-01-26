@@ -18,6 +18,8 @@ public class CharacterController : MonoBehaviour
 
     private Collectable newCollectable;
 
+	private float speedModifier = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -97,6 +99,7 @@ public class CharacterController : MonoBehaviour
         else if (Move.x > 0)
             transform.localScale = new Vector3(1, 1, 1);
 
+        //rb.velocity = Move * speed * speedModifier;
         rb.velocity = Move * speed;
 
         HandleInput();
@@ -109,7 +112,7 @@ public class CharacterController : MonoBehaviour
             if (currentPickedupCollectable != null)
             {
                 currentPickedupCollectable.Drop();
-                newCollectable.gameObject.transform.localScale = new Vector3(1, 1, 1);
+				currentPickedupCollectable.gameObject.transform.localScale = new Vector3(1, 1, 1);
                 currentPickedupCollectable = null;
                 speed = 100;
             }
@@ -118,7 +121,7 @@ public class CharacterController : MonoBehaviour
                 currentTouchedCollectable.Pickup(anchor);
                 currentPickedupCollectable = currentTouchedCollectable;
                 PickupScriptableObject CurrObject =  currentPickedupCollectable.pickupObject;
-                speed *= CurrObject.SpeedModifier;
+				speed *= CurrObject.SpeedModifier;
             }
         }
     }
