@@ -31,11 +31,13 @@ public class SatanTaskManager : MonoBehaviour
     public void HideSpeechCloud()
     {
         cloudRenderer.gameObject.SetActive(false);
+        cloudRendererImageLocation.gameObject.SetActive(false);
     }
 
     public void ShowSpeechCloud()
     {
         cloudRenderer.gameObject.SetActive(true);
+        cloudRendererImageLocation.gameObject.SetActive(true);
     }
 
     private IEnumerator HideSpeechBubbleAfterX(float timeToHide)
