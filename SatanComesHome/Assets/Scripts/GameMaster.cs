@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameMaster : MonoBehaviour
 {
@@ -11,6 +13,10 @@ public class GameMaster : MonoBehaviour
 
 	[SerializeField]
 	private int numberOfCollectablesToSpawn = 25;
+	[SerializeField]
+	private Text timerText;
+	[SerializeField]
+	private SpawnArea[] spawnAreas;
 
 	private List<Collectable> collectables = new List<Collectable>();
 
@@ -26,8 +32,13 @@ public class GameMaster : MonoBehaviour
 		TickTimer();
 
 		//If timer ticks all the way down, end game
+		if (timer <= 0)
+		{
+			EndGame();
+		}
 
 		//Update UI
+		timerText.text = ((int)timer).ToString();
 
 		//Scoring
 			//If target is returned
@@ -37,6 +48,10 @@ public class GameMaster : MonoBehaviour
 	private void TickTimer()
 	{
 		timer -= Time.deltaTime;
+		if (timer < 0)
+		{
+			timer = 0;
+		}
 	}
 
 	private void GenerateLevel()
@@ -51,8 +66,9 @@ public class GameMaster : MonoBehaviour
 	private void EndGame()
 	{
 		//Calculate score
-		
+
 		//Go to score screen
+		SceneManager.LoadScene("GameOver");
 	}
 
 	public void ChangeTimer(float delta)
