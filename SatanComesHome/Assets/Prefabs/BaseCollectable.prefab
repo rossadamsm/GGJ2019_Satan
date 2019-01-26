@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1743221681994715164}
   - component: {fileID: 6357286481709435181}
   - component: {fileID: 4717208892412695895}
+  - component: {fileID: 5647852355903470209}
   m_Layer: 0
   m_Name: BaseCollectable
   m_TagString: Untagged
@@ -58,7 +59,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
 --- !u!212 &1743221681994715164
 SpriteRenderer:
@@ -123,6 +124,7 @@ MonoBehaviour:
   type: 
   pickupObject: {fileID: 0}
   dropped: 1
+  highlight: {fileID: 0}
 --- !u!114 &4717208892412695895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,3 +137,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 476c2a901601fac44b76f019d75f690a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5647852355903470209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92945125884172349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 0
+  eraseRenderer: 0
+  originalLayer: 0
+  originalMaterials: []

@@ -16,6 +16,8 @@ public class CharacterController : MonoBehaviour
     private Collectable currentPickedupCollectable;
     private Collectable currentTouchedCollectable;
 
+    private Collectable newCollectable;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,7 +57,7 @@ public class CharacterController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Collectable newCollectable = collision.GetComponent<Collectable>();
+        newCollectable = collision.GetComponent<Collectable>();
 
         if (newCollectable != null)
         {
@@ -70,7 +72,7 @@ public class CharacterController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Collectable newCollectable = collision.GetComponent<Collectable>();
+        newCollectable = collision.GetComponent<Collectable>();
 
         if (newCollectable == currentTouchedCollectable)
         {
@@ -107,6 +109,7 @@ public class CharacterController : MonoBehaviour
             if (currentPickedupCollectable != null)
             {
                 currentPickedupCollectable.Drop();
+                newCollectable.gameObject.transform.localScale = new Vector3(1, 1, 1);
                 currentPickedupCollectable = null;
                 speed = 100;
             }
