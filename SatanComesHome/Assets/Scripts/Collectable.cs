@@ -100,12 +100,12 @@ public class Collectable : MonoBehaviour
 		if (pickupObject.Type == GameMaster.instance.satanTaskManager.CurrentTask)
 		{
 			GameMaster.instance.ChangeTimer(pickupObject.TimeToAdd * 2);
-			GameMaster.instance.score += pickupObject.PointValue * 2;
+			GameMaster.instance.ChangeScore(pickupObject.PointValue * 2);
 		}
 		else
 		{
 			GameMaster.instance.ChangeTimer(pickupObject.TimeToAdd);
-			GameMaster.instance.score += pickupObject.PointValue;
+			GameMaster.instance.ChangeScore(pickupObject.PointValue);
 		}
 		GameMaster.instance.collectables.Remove(this);
 		collider.enabled = false;

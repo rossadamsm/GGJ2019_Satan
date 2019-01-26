@@ -27,6 +27,13 @@ public class Portal : MonoBehaviour
 				Teleport();
 			}
 		}
+		if (collision.transform.tag == "Priest")
+		{
+			if (teleport)
+			{
+				Teleport();
+			}
+		}
 	}
 
 	private void OnTriggerExit2D(Collider2D collision)

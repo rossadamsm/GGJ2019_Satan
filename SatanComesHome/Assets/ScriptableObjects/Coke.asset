@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95bfb3c0fd2aac942945fbc6448ed83f, type: 3}
   m_Name: Coke
   m_EditorClassIdentifier: 
-  mySprite: {fileID: 21300000, guid: 03b048ad414994b4fbe9719de7170e2f, type: 3}
+  mySprite: {fileID: 21300000, guid: b322d7f857bb9e946b8bf6a115436e12, type: 3}
   TimeToAdd: 2
   SpeedModifier: 1
   PointValue: 2
   Type: coke
+  animationOverrideController: {fileID: 0}

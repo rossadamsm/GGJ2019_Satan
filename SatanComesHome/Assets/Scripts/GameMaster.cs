@@ -11,6 +11,7 @@ public class GameMaster : MonoBehaviour
 	private float timer = 0;
 	public int score = 0;
 	public int priestSpawnInterval = 100;
+	public int priestScoreCounter = 0;
 
 	[SerializeField]
 	private int numberOfCollectablesToSpawn = 25;
@@ -44,6 +45,10 @@ public class GameMaster : MonoBehaviour
 			GenerateLevel();
 			satanTaskManager = FindObjectOfType<SatanTaskManager>();
 			satanTaskManager.HideSpeechCloud();
+
+			priestScoreCounter = priestSpawnInterval;
+
+			Instantiate(priestPrefab, spawnAreas[Random.Range(0, spawnAreas.Length)].GetPositionWithinArea(), Quaternion.identity);
 		}
 		else if (instance != this)
 			Destroy(gameObject);
@@ -56,9 +61,15 @@ public class GameMaster : MonoBehaviour
 		satanTaskManager.AssignNewItemTask(collectables[Random.Range(0, collectables.Count)].pickupObject);
 	}
 
-	public void ChageScore(int delta)
+	public void ChangeScore(int delta)
 	{
 		score += delta;
+		priestScoreCounter -= delta;
+		if (priestScoreCounter <= 0)
+		{
+			priestScoreCounter = priestSpawnInterval;
+			Instantiate(priestPrefab, spawnAreas[Random.Range(0, spawnAreas.Length)].GetPositionWithinArea(), Quaternion.identity);
+		}
 	}
 
     void Update()
@@ -73,7 +84,7 @@ public class GameMaster : MonoBehaviour
 
 		//Update UI
 		timerText.text = ((int)timer).ToString();
-		scoreText.text = ((int)score).ToString();
+		scoreText.text = (score).ToString();
 
 		//Scoring
 		//If target is returned
