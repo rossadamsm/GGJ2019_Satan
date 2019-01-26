@@ -16,6 +16,7 @@ public class PriestAI : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 Move, roamDirection = new Vector2(1,0);
     private Transform player;
+    private PriestState previousState;
 
     private void Awake()
     {
@@ -66,14 +67,20 @@ public class PriestAI : MonoBehaviour
 
     private void Chase()
     {
+        if(previousState!= PriestState.Chase)
+            SoundManager.instance.PlayPriestSound();
+
         Vector2 direction = player.position - transform.position;
         direction.Normalize();
         Move = direction;
+
+        previousState = PriestState.Chase;
     }
 
     private void Idle()
     {
         Move = new Vector2(0, 0);
+        previousState = PriestState.Idle;
     }
 
     private void Roam()
@@ -81,5 +88,6 @@ public class PriestAI : MonoBehaviour
         //Move = new Vector2(UnityEngine.Random.Range(-1f,1f), Random.Range(-1f, 1f));
         Move = roamDirection;
         Move.Normalize();
+        previousState = PriestState.Roam;
     }
 }
