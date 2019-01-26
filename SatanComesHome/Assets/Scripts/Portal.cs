@@ -9,6 +9,8 @@ public class Portal : MonoBehaviour
 	private bool active = true;
 	[SerializeField]
 	private bool teleport = false;
+	[SerializeField]
+	public GameObject portalAnimation;
 
 	[SerializeField]
 	private Transform[] portalTeleportSpots = null;
@@ -18,6 +20,7 @@ public class Portal : MonoBehaviour
 		if (collision.transform.tag == "Player" && active)
 		{
 			otherPortal.active = false;
+			otherPortal.portalAnimation.SetActive(false);
 			collision.transform.position = otherPortal.transform.position;
 			if (teleport)
 			{
@@ -46,7 +49,8 @@ public class Portal : MonoBehaviour
 
 	private IEnumerator EnablePortal()
 	{
-		yield return (new WaitForSeconds(1));
+		yield return (new WaitForSeconds(0.35f));
 		active = true;
+		portalAnimation.SetActive(true);
 	}
 }

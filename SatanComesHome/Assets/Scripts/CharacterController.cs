@@ -33,41 +33,19 @@ public class CharacterController : MonoBehaviour
 		animator = GetComponent<Animator>();
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		anchor = GetComponentInChildren<Transform>();
+
+		GameMaster.instance.SetNewTarget();
 	}
 
-	//private void OnCollisionEnter2D(Collision2D collision)
-	//{
-	//    if (collision.collider.transform.tag == "Collectable")
-	//    {
-	//        Collectable c = collision.collider.GetComponent<Collectable>();
-	//        if (c.dropped)
-	//            c.Pickup(anchor);
-	//        c.dropped = false;
-
-	//        Debug.Log("Picked up object" + gameObject.name);
-	//    }
-	//    go = collision.gameObject;
-
-	//}
-
-	//private void OnCollisionExit2D(Collision2D collision)
-	//{
-	//    if (collision.collider.transform.tag == "Collectable")
-	//    {
-	//        Collectable c = collision.collider.GetComponent<Collectable>();
-	//        c.dropped = true;
-
-	//        c.Drop();
-
-	//        Debug.Log("Dropped object" + gameObject.name);
-	//    }
-	//}
-
-	private void OnCollision2D(Collision2D collision)
+	private void OnCollisionEnter2D(Collision2D collision)
 	{
+		Debug.Log("The priest touched me");
 		if (collision.transform.tag == "Priest")
 		{
-			currentPickedupCollectable.Drop();
+			if (currentPickedupCollectable != null)
+			{
+				currentPickedupCollectable.Drop();
+			}
 			transform.position = hellTeleportPoint.position;
 		}
 	}
@@ -90,6 +68,7 @@ public class CharacterController : MonoBehaviour
 		{
 			inHell = true;
 			Camera.main.GetComponent<PostPManager>().gotoHell();
+
 			Debug.Log("In hell");
 		}
 	}
@@ -144,6 +123,7 @@ public class CharacterController : MonoBehaviour
 				if (inHell)
 				{
 					currentPickedupCollectable.PlaceInHell();
+					GameMaster.instance.SetNewTarget();
 				}
 				currentPickedupCollectable.gameObject.transform.localScale = new Vector3(1, 1, 1);
 				currentPickedupCollectable = null;

@@ -10,6 +10,7 @@ public class GameMaster : MonoBehaviour
 	private float timerStartValue = 60.0f;
 	private float timer = 0;
 	public int score = 0;
+	public int priestSpawnInterval = 100;
 
 	[SerializeField]
 	private int numberOfCollectablesToSpawn = 25;
@@ -23,9 +24,11 @@ public class GameMaster : MonoBehaviour
 	private GameObject collectablePrefab;
 	[SerializeField]
 	private PickupScriptableObject[] collectableData;
+	[SerializeField]
+	private GameObject priestPrefab;
 
 	public List<Collectable> collectables = new List<Collectable>();
-    private SatanTaskManager satanTaskManager;
+    public SatanTaskManager satanTaskManager;
 
 	public static GameMaster instance;
 
@@ -48,6 +51,16 @@ public class GameMaster : MonoBehaviour
 		DontDestroyOnLoad(gameObject);
 	}
 
+	public void SetNewTarget()
+	{
+		satanTaskManager.AssignNewItemTask(collectables[Random.Range(0, collectables.Count)].pickupObject);
+	}
+
+	public void ChageScore(int delta)
+	{
+		score += delta;
+	}
+
     void Update()
     {
 		TickTimer();
@@ -66,10 +79,6 @@ public class GameMaster : MonoBehaviour
 		//If target is returned
 		//Assign new target
 
-		if (Input.GetKeyDown(KeyCode.T))
-        {
-            satanTaskManager.AssignRandomItemTask(collectableData);
-        }
     }
 
 	private void TickTimer()
