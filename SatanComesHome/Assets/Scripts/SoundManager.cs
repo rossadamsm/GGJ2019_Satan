@@ -9,6 +9,8 @@ public class SoundManager : MonoBehaviour
     public float lowPitchRange = .95f;
     public float highPitchRange = 1.05f;
 
+    public AudioClip[] dropSounds;
+    public AudioClip[] priestSounds;
 
     void Awake()
     {
@@ -34,5 +36,23 @@ public class SoundManager : MonoBehaviour
         efxSource.pitch = randomPitch;
         efxSource.clip = clips[randomIndex];
         efxSource.Play();
+    }
+
+    public void PlayPriestSound()
+    {
+        PlaySingle(GetRandomClip(priestSounds));
+
+    }
+
+    public void PlayDropSound()
+    {
+        PlaySingle(GetRandomClip(dropSounds));
+    }
+
+
+    private AudioClip GetRandomClip(AudioClip[] audioclips)
+    {
+        int index = Random.Range(0, audioclips.Length - 1);
+        return audioclips[index];
     }
 }
