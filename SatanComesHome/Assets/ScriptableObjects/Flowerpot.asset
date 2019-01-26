@@ -16,3 +16,4 @@ MonoBehaviour:
   TimeToAdd: 1
   SpeedModifier: 1
   PointValue: 5
+  Type: flowerpot

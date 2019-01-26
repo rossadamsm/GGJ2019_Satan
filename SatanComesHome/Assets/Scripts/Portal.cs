@@ -7,6 +7,8 @@ public class Portal : MonoBehaviour
 	[SerializeField]
 	private Portal otherPortal;
 	private bool active = true;
+	[SerializeField]
+	private bool teleport = false;
 
 	[SerializeField]
 	private Transform[] portalTeleportSpots = null;
@@ -17,6 +19,10 @@ public class Portal : MonoBehaviour
 		{
 			otherPortal.active = false;
 			collision.transform.position = otherPortal.transform.position;
+			if (teleport)
+			{
+				Teleport();
+			}
 		}
 	}
 
@@ -25,15 +31,16 @@ public class Portal : MonoBehaviour
 		if (collision.transform.tag == "Player")
 		{
 			active = true;
-			if (portalTeleportSpots != null)
-			{
-				transform.position = portalTeleportSpots[Random.Range(0, portalTeleportSpots.Length)].position;
-			}
 		}
+	}
+
+	public void Teleport()
+	{
+		transform.position = portalTeleportSpots[Random.Range(0, portalTeleportSpots.Length)].position;
 	}
 
 	private void OnDrawGizmos()
 	{
-		
+		Gizmos.DrawWireSphere(transform.position, 50);
 	}
 }

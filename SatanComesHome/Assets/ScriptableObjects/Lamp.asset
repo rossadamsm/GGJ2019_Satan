@@ -16,3 +16,4 @@ MonoBehaviour:
   TimeToAdd: 4
   SpeedModifier: 0.9
   PointValue: 10
+  Type: lamp
