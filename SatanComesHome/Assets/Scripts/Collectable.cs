@@ -15,11 +15,13 @@ public class Collectable : MonoBehaviour
 
 	private new BoxCollider2D collider;
 	private SpriteRenderer spriteRenderer;
+    public cakeslice.Outline highlight;
 
     void Awake()
 	{
 		collider = GetComponent<BoxCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        highlight = GetComponent<cakeslice.Outline>();
 
         if (pickupObject)
 		{
@@ -34,6 +36,7 @@ public class Collectable : MonoBehaviour
 		timeAdd = pickupObject.TimeToAdd;
 		speedModifier = pickupObject.SpeedModifier;
 		pointValue = pickupObject.PointValue;
+        highlight.enabled = false;
 	}
 
     public void Pickup(Transform anchor)
