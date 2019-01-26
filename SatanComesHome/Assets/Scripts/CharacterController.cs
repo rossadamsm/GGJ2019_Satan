@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,8 +11,10 @@ public class CharacterController : MonoBehaviour
     private GameObject go;
     //[SerializeField]
     private Transform anchor;
-
     private SpriteRenderer spriteRenderer;
+
+    private Collectable currentPickedupCollectable;
+    private Collectable currentTouchedCollectable;
 
     // Start is called before the first frame update
     void Start()
@@ -22,24 +25,56 @@ public class CharacterController : MonoBehaviour
         anchor = GetComponentInChildren<Transform>();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.collider.transform.tag == "Collectable")
+    //    {
+    //        Collectable c = collision.collider.GetComponent<Collectable>();
+    //        if (c.dropped)
+    //            c.Pickup(anchor);
+    //        c.dropped = false;
+
+    //        Debug.Log("Picked up object" + gameObject.name);
+    //    }
+    //    go = collision.gameObject;
+
+    //}
+
+    //private void OnCollisionExit2D(Collision2D collision)
+    //{
+    //    if (collision.collider.transform.tag == "Collectable")
+    //    {
+    //        Collectable c = collision.collider.GetComponent<Collectable>();
+    //        c.dropped = true;
+
+    //        c.Drop();
+
+    //        Debug.Log("Dropped object" + gameObject.name);
+    //    }
+    //}
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.collider.transform.tag == "Collectable")
+        Collectable newCollectable = collision.GetComponent<Collectable>();
+
+        if (newCollectable != null)
         {
-            Collectable c = collision.collider.GetComponent<Collectable>();
-            if (c.dropped)
-                c.Pickup(anchor);
-            c.dropped = false;
+            if (currentPickedupCollectable != null)
+                return;
+            else
+            {
+                currentTouchedCollectable = newCollectable;
+            }
         }
-        go = collision.gameObject;
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.collider.transform.tag == "Collectable")
+        Collectable newCollectable = collision.GetComponent<Collectable>();
+
+        if (newCollectable == currentTouchedCollectable)
         {
-            Collectable c = collision.collider.GetComponent<Collectable>();
-            c.dropped = true;
+            currentTouchedCollectable = null;
         }
     }
 
@@ -62,15 +97,23 @@ public class CharacterController : MonoBehaviour
 
         rb.velocity = Move * speed;
 
+        HandleInput();
+    }
+
+    private void HandleInput()
+    {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Collectable obj = go.GetComponent<Collectable>();
-            obj.Drop();
+            if (currentPickedupCollectable != null)
+            {
+                currentPickedupCollectable.Drop();
+                currentPickedupCollectable = null;
+            }
+            else if (currentTouchedCollectable != null)
+            {
+                currentTouchedCollectable.Pickup(anchor);
+                currentPickedupCollectable = currentTouchedCollectable;
+            }
         }
-
-        //if (Move.x < 0)
-        //    spriteRenderer.flipX = true;
-        //else if (Move.x > 0)
-        //    spriteRenderer.flipX = false;
     }
 }

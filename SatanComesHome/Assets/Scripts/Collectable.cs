@@ -15,18 +15,11 @@ public class Collectable : MonoBehaviour
 	private bool beingCarried = false;
     public bool dropped = true;
 
-	BoxCollider2D collider;
+	new BoxCollider2D collider;
 
-	// Start is called before the first frame update
 	void Start()
 	{
 		collider = GetComponent<BoxCollider2D>();
-	}
-
-	// Update is called once per frame
-	void Update()
-	{
-
 	}
 
     public void Pickup(Transform anchor)
