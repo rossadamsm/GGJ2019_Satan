@@ -108,11 +108,14 @@ public class CharacterController : MonoBehaviour
             {
                 currentPickedupCollectable.Drop();
                 currentPickedupCollectable = null;
+                speed = 100;
             }
             else if (currentTouchedCollectable != null)
             {
                 currentTouchedCollectable.Pickup(anchor);
                 currentPickedupCollectable = currentTouchedCollectable;
+                PickupScriptableObject CurrObject =  currentPickedupCollectable.pickupObject;
+                speed *= CurrObject.SpeedModifier;
             }
         }
     }
