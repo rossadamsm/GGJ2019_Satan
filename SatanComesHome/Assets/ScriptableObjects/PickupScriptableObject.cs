@@ -6,5 +6,5 @@ public class PickupScriptableObject : ScriptableObject
     public Sprite mySprite;
     public float TimeToAdd;
     public float SpeedModifier;
-    public int PointValue;
+    public int PointValue; 
 }

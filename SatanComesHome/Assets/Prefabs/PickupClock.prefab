@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8222453098723413668}
   - component: {fileID: 8222453098723413669}
-  - component: {fileID: 8222453098723413670}
   - component: {fileID: 8222453098723413667}
   m_Layer: 0
   m_Name: PickupClock
@@ -28,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 8222453098723413671}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.8671951, y: -0.53159237, z: 0}
-  m_LocalScale: {x: 52.191, y: 52.191, z: 52.191}
+  m_LocalScale: {x: 0.7374589, y: 0.7374589, z: 0.7374589}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -81,22 +80,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8222453098723413670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8222453098723413671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3a28cb88a09c2a469cb2559ef4f450d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeAdd: 10
-  speedModifier: 0
-  pointValue: 0
-  dropped: 1
 --- !u!61 &8222453098723413667
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -114,7 +97,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.32}
+    oldSize: {x: 16, y: 32}
     newSize: {x: 0.16, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
