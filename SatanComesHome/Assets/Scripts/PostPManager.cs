@@ -12,7 +12,6 @@ public class PostPManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        satan = FindObjectOfType<CharacterController>();
         view = Camera.main;
     }
 
