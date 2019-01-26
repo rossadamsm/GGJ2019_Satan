@@ -70,6 +70,11 @@ public class GameMaster : MonoBehaviour
 			priestScoreCounter = priestSpawnInterval;
 			Instantiate(priestPrefab, spawnAreas[Random.Range(0, spawnAreas.Length)].GetPositionWithinArea(), Quaternion.identity);
 		}
+		if (collectables.Count == 0)
+		{
+			//Happy satan
+			EndGame();
+		}
 	}
 
     void Update()

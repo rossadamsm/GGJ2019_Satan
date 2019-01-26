@@ -50,12 +50,18 @@ public class Collectable : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        highlight.enabled = true;
+		if (collision.transform.tag == "Player")
+		{
+			highlight.enabled = true;
+		}
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        highlight.enabled = false;
+		if (collision.transform.tag == "Player")
+		{
+			highlight.enabled = false;
+		}
     }
 
     public void Pickup(Transform anchor)
