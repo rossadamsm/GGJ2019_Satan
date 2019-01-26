@@ -33,6 +33,11 @@ public class PriestAI : MonoBehaviour
 
     private void Update()
     {
+        if (Vector2.Distance(player.transform.position,transform.position) < 50)
+            myState = PriestState.Chase;
+        else
+            myState = PriestState.Roam;
+
         switch (myState)
         {
             case PriestState.Idle:
