@@ -76,6 +76,8 @@ public class CharacterController : MonoBehaviour
 		if (collision.transform.tag == "Hell")
 		{
 			inHell = true;
+			Camera.main.GetComponent<PostPManager>().gotoHell();
+			Debug.Log("In hell");
 		}
 	}
 
@@ -91,6 +93,8 @@ public class CharacterController : MonoBehaviour
 		if (collision.transform.tag == "Hell")
 		{
 			inHell = false;
+			Camera.main.GetComponent<PostPManager>().gotoEarth();
+			Debug.Log("Left hell");
 		}
 	}
 
