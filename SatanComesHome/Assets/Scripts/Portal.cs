@@ -30,7 +30,7 @@ public class Portal : MonoBehaviour
 	{
 		if (collision.transform.tag == "Player")
 		{
-			active = true;
+			StartCoroutine(EnablePortal());
 		}
 	}
 
@@ -42,5 +42,11 @@ public class Portal : MonoBehaviour
 	private void OnDrawGizmos()
 	{
 		Gizmos.DrawWireSphere(transform.position, 50);
+	}
+
+	private IEnumerator EnablePortal()
+	{
+		yield return (new WaitForSeconds(1));
+		active = true;
 	}
 }

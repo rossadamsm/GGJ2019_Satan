@@ -5,124 +5,136 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
-    public Rigidbody2D rb;
-    public Animator animator;
-    public float speed;
-    private GameObject go;
-    //[SerializeField]
-    private Transform anchor;
-    public SpriteRenderer spriteRenderer;
+	public Rigidbody2D rb;
+	public Animator animator;
+	public float speed;
+	private GameObject go;
+	//[SerializeField]
+	private Transform anchor;
+	private SpriteRenderer spriteRenderer;
 
-    private Collectable currentPickedupCollectable;
-    private Collectable currentTouchedCollectable;
+	private Collectable currentPickedupCollectable;
+	private Collectable currentTouchedCollectable;
 
-    private Collectable newCollectable;
+	private Collectable newCollectable;
 
 	private float speedModifier = 1;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        anchor = GetComponentInChildren<Transform>();
-    }
+	public bool inHell = false;
 
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    if (collision.collider.transform.tag == "Collectable")
-    //    {
-    //        Collectable c = collision.collider.GetComponent<Collectable>();
-    //        if (c.dropped)
-    //            c.Pickup(anchor);
-    //        c.dropped = false;
+	// Start is called before the first frame update
+	void Start()
+	{
+		rb = GetComponent<Rigidbody2D>();
+		animator = GetComponent<Animator>();
+		spriteRenderer = GetComponent<SpriteRenderer>();
+		anchor = GetComponentInChildren<Transform>();
+	}
 
-    //        Debug.Log("Picked up object" + gameObject.name);
-    //    }
-    //    go = collision.gameObject;
+	//private void OnCollisionEnter2D(Collision2D collision)
+	//{
+	//    if (collision.collider.transform.tag == "Collectable")
+	//    {
+	//        Collectable c = collision.collider.GetComponent<Collectable>();
+	//        if (c.dropped)
+	//            c.Pickup(anchor);
+	//        c.dropped = false;
 
-    //}
+	//        Debug.Log("Picked up object" + gameObject.name);
+	//    }
+	//    go = collision.gameObject;
 
-    //private void OnCollisionExit2D(Collision2D collision)
-    //{
-    //    if (collision.collider.transform.tag == "Collectable")
-    //    {
-    //        Collectable c = collision.collider.GetComponent<Collectable>();
-    //        c.dropped = true;
+	//}
 
-    //        c.Drop();
+	//private void OnCollisionExit2D(Collision2D collision)
+	//{
+	//    if (collision.collider.transform.tag == "Collectable")
+	//    {
+	//        Collectable c = collision.collider.GetComponent<Collectable>();
+	//        c.dropped = true;
 
-    //        Debug.Log("Dropped object" + gameObject.name);
-    //    }
-    //}
+	//        c.Drop();
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        newCollectable = collision.GetComponent<Collectable>();
+	//        Debug.Log("Dropped object" + gameObject.name);
+	//    }
+	//}
 
-        if (newCollectable != null)
-        {
-            if (currentPickedupCollectable != null)
-                return;
-            else
-            {
-                currentTouchedCollectable = newCollectable;
-            }
-        }
-    }
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		newCollectable = collision.GetComponent<Collectable>();
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        newCollectable = collision.GetComponent<Collectable>();
+		if (newCollectable != null)
+		{
+			if (currentPickedupCollectable != null)
+				return;
+			else
+			{
+				currentTouchedCollectable = newCollectable;
+			}
+		}
 
-        if (newCollectable == currentTouchedCollectable)
-        {
-            currentTouchedCollectable = null;
-        }
-    }
+		if (collision.transform.tag == "Hell")
+		{
+			inHell = true;
+		}
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        Vector2 Move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+	private void OnTriggerExit2D(Collider2D collision)
+	{
+		newCollectable = collision.GetComponent<Collectable>();
 
-        Move.Normalize();
+		if (newCollectable == currentTouchedCollectable)
+		{
+			currentTouchedCollectable = null;
+		}
 
-        if (Move.Equals(Vector2.zero))
-            animator.SetBool("walk", false);
-        else
-            animator.SetBool("walk", true);
+		if (collision.transform.tag == "Hell")
+		{
+			inHell = false;
+		}
+	}
 
-        if (Move.x < 0)
-            transform.localScale = new Vector3(-1, 1, 1);
-        else if (Move.x > 0)
-            transform.localScale = new Vector3(1, 1, 1);
+	// Update is called once per frame
+	void Update()
+	{
+		Vector2 Move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
-        //rb.velocity = Move * speed * speedModifier;
-        rb.velocity = Move * speed;
+		Move.Normalize();
 
-        HandleInput();
-    }
+		if (Move.Equals(Vector2.zero))
+			animator.SetBool("walk", false);
+		else
+			animator.SetBool("walk", true);
 
-    private void HandleInput()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (currentPickedupCollectable != null)
-            {
-                currentPickedupCollectable.Drop();
+		if (Move.x < 0)
+			transform.localScale = new Vector3(-1, 1, 1);
+		else if (Move.x > 0)
+			transform.localScale = new Vector3(1, 1, 1);
+
+		//rb.velocity = Move * speed * speedModifier;
+		rb.velocity = Move * speed;
+
+		HandleInput();
+	}
+
+	private void HandleInput()
+	{
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+			if (currentPickedupCollectable != null)
+			{
+				currentPickedupCollectable.Drop();
 				currentPickedupCollectable.gameObject.transform.localScale = new Vector3(1, 1, 1);
-                currentPickedupCollectable = null;
-                speed = 100;
-            }
-            else if (currentTouchedCollectable != null)
-            {
-                currentTouchedCollectable.Pickup(anchor);
-                currentPickedupCollectable = currentTouchedCollectable;
-                PickupScriptableObject CurrObject =  currentPickedupCollectable.pickupObject;
+				currentPickedupCollectable = null;
+				speed = 100;
+			}
+			else if (currentTouchedCollectable != null)
+			{
+				currentTouchedCollectable.Pickup(anchor);
+				currentPickedupCollectable = currentTouchedCollectable;
+				PickupScriptableObject CurrObject = currentPickedupCollectable.pickupObject;
 				speed *= CurrObject.SpeedModifier;
-            }
-        }
-    }
+			}
+		}
+	}
 }
