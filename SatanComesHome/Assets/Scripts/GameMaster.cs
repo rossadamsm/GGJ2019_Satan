@@ -17,6 +17,8 @@ public class GameMaster : MonoBehaviour
 	private Text timerText;
 	[SerializeField]
 	private SpawnArea[] spawnAreas;
+	[SerializeField]
+	private GameObject[] collectablePrefabs;
 
 	private List<Collectable> collectables = new List<Collectable>();
 
@@ -25,7 +27,8 @@ public class GameMaster : MonoBehaviour
 		Random.InitState((int)System.DateTime.Now.Ticks);
 
 		timer = timerStartValue;
-    }
+		GenerateLevel();
+	}
 
     void Update()
     {
@@ -58,7 +61,8 @@ public class GameMaster : MonoBehaviour
 	{
 		for (int x = 0; x < numberOfCollectablesToSpawn; x++)
 		{
-
+			GameObject go = Instantiate(collectablePrefabs[Random.Range(0, collectablePrefabs.Length)], spawnAreas[Random.Range(0, spawnAreas.Length)].GetPositionWithinArea(), Quaternion.identity);
+			collectables.Add(go.GetComponent<Collectable>());
 		}
 		//Randomly place X amount of objects
 	}

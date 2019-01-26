@@ -11,6 +11,8 @@ public class Collectable : MonoBehaviour
 	private float speedModifier = 0f;
 	[SerializeField]
 	private int pointValue;
+	[SerializeField]
+	private string type;
 
 	private bool beingCarried = false;
     public bool dropped = true;
