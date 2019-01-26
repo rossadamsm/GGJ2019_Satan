@@ -16,7 +16,6 @@ MonoBehaviour:
   TimeToAdd: 3
   SpeedModifier: 0.9
   PointValue: 10
-  Type: 
-  spriteAnimationClip: {fileID: 7400000, guid: 03b9d33a286ec2247a6124fd8752d289, type: 2}
+  Type: tv
   animationOverrideController: {fileID: 22100000, guid: 8d312875c7ad92c4dbb57d1724aafacc,
     type: 2}
