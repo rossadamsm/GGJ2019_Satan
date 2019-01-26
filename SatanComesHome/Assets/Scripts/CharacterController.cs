@@ -11,7 +11,7 @@ public class CharacterController : MonoBehaviour
 	private GameObject go;
 	//[SerializeField]
 	private Transform anchor;
-	private SpriteRenderer spriteRenderer;
+	public SpriteRenderer spriteRenderer;
 
 	private Collectable currentPickedupCollectable;
 	private Collectable currentTouchedCollectable;
