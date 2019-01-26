@@ -1,5 +1,6 @@
 ﻿using Cinemachine;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StoryManager : MonoBehaviour
 {
@@ -9,11 +10,13 @@ public class StoryManager : MonoBehaviour
 
     private int frameIndex = 0;
     private int previousPriority;
+    public AudioClip clip;
 
     private void Awake()
     {
         previousPriority = cinemachineVirtualCameras[0].Priority;
         pageTurnSource = GetComponent<AudioSource>();
+        SoundManager.instance.PlayLoop(clip);
     }
 
     private void Update()
@@ -31,7 +34,8 @@ public class StoryManager : MonoBehaviour
         pageTurnSource.Play();
 
         if (frameIndex >= cinemachineVirtualCameras.Length)
-            frameIndex = 0;
+            SceneManager.LoadScene("Main");
+            //frameIndex = 0;
 
         previousPriority *= 2;
         cinemachineVirtualCameras[frameIndex].Priority = previousPriority;
