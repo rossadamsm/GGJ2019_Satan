@@ -39,6 +39,16 @@ public class Collectable : MonoBehaviour
         highlight.enabled = false;
 	}
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        highlight.enabled = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        highlight.enabled = false;
+    }
+
     public void Pickup(Transform anchor)
     {
         transform.SetParent(anchor.transform);
