@@ -21,6 +21,8 @@ public class CharacterController : MonoBehaviour
 	private float speedModifier = 1;
 
 	public bool inHell = false;
+	[SerializeField]
+	PostPManager ppManager;
 
 	// Start is called before the first frame update
 	void Start()
@@ -128,6 +130,10 @@ public class CharacterController : MonoBehaviour
 			if (currentPickedupCollectable != null)
 			{
 				currentPickedupCollectable.Drop();
+				if (inHell)
+				{
+					currentPickedupCollectable.PlaceInHell();
+				}
 				currentPickedupCollectable.gameObject.transform.localScale = new Vector3(1, 1, 1);
 				currentPickedupCollectable = null;
 				speed = 100;

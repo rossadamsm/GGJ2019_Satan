@@ -80,4 +80,11 @@ public class Collectable : MonoBehaviour
         Debug.Log(beingCarried);
 
 	}
+
+	public void PlaceInHell()
+	{
+		GameMaster gm = FindObjectOfType<GameMaster>();
+		gm.ChangeTimer(pickupObject.TimeToAdd);
+		gm.score += pickupObject.PointValue;
+	}
 }

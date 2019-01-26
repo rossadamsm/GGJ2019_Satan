@@ -9,12 +9,14 @@ public class GameMaster : MonoBehaviour
 	[SerializeField]
 	private float timerStartValue = 60.0f;
 	private float timer = 0;
-	private int score = 0;
+	public int score = 0;
 
 	[SerializeField]
 	private int numberOfCollectablesToSpawn = 25;
 	[SerializeField]
 	private Text timerText;
+	[SerializeField]
+	private Text scoreText;
 	[SerializeField]
 	private SpawnArea[] spawnAreas;
 	[SerializeField]
@@ -48,12 +50,13 @@ public class GameMaster : MonoBehaviour
 
 		//Update UI
 		timerText.text = ((int)timer).ToString();
+		scoreText.text = ((int)score).ToString();
 
-        //Scoring
-        //If target is returned
-        //Assign new target
+		//Scoring
+		//If target is returned
+		//Assign new target
 
-        if (Input.GetKeyDown(KeyCode.T))
+		if (Input.GetKeyDown(KeyCode.T))
         {
             satanTaskManager.AssignRandomItemTask(collectableData);
         }
