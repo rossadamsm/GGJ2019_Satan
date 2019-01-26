@@ -12,7 +12,7 @@ public class StoryManager : MonoBehaviour
     private int previousPriority;
     public AudioClip clip;
 
-    private void Awake()
+    private void Start()
     {
         previousPriority = cinemachineVirtualCameras[0].Priority;
         pageTurnSource = GetComponent<AudioSource>();
