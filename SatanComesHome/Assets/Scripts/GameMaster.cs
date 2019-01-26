@@ -45,9 +45,14 @@ public class GameMaster : MonoBehaviour
 		//Update UI
 		timerText.text = ((int)timer).ToString();
 
-		//Scoring
-			//If target is returned
-				//Assign new target
+        //Scoring
+        //If target is returned
+        //Assign new target
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            FindObjectOfType<SatanTaskManager>().AssignRandomItemTask(collectableData);
+        }
     }
 
 	private void TickTimer()

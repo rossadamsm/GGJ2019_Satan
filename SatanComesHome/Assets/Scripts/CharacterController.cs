@@ -66,8 +66,6 @@ public class CharacterController : MonoBehaviour
             else
             {
                 currentTouchedCollectable = newCollectable;
-                cakeslice.Outline highlight = currentTouchedCollectable.highlight;
-                highlight.enabled = true;
             }
         }
     }
@@ -78,8 +76,6 @@ public class CharacterController : MonoBehaviour
 
         if (newCollectable == currentTouchedCollectable)
         {
-            cakeslice.Outline highlight = currentTouchedCollectable.highlight;
-            highlight.enabled = false;
             currentTouchedCollectable = null;
         }
     }
@@ -98,7 +94,7 @@ public class CharacterController : MonoBehaviour
 
         if (Move.x < 0)
             transform.localScale = new Vector3(-1, 1, 1);
-        else
+        else if (Move.x > 0)
             transform.localScale = new Vector3(1, 1, 1);
 
         rb.velocity = Move * speed;
