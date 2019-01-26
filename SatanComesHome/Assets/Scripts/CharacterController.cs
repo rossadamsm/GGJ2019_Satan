@@ -26,6 +26,9 @@ public class CharacterController : MonoBehaviour
 	[SerializeField]
 	Transform hellTeleportPoint;
 
+    public AudioClip hell;
+    public AudioClip sneak;
+
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -35,6 +38,7 @@ public class CharacterController : MonoBehaviour
 		anchor = GetComponentInChildren<Transform>();
 
 		GameMaster.instance.SetNewTarget();
+        SoundManager.instance.PlayLoop(hell);
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision)
@@ -68,6 +72,7 @@ public class CharacterController : MonoBehaviour
 		{
 			inHell = true;
 			Camera.main.GetComponent<PostPManager>().gotoHell();
+            SoundManager.instance.PlayLoop(hell);
 
 			Debug.Log("In hell");
 		}
@@ -86,6 +91,7 @@ public class CharacterController : MonoBehaviour
 		{
 			inHell = false;
 			Camera.main.GetComponent<PostPManager>().gotoEarth();
+            SoundManager.instance.PlayLoop(sneak);
 			Debug.Log("Left hell");
 		}
 	}
