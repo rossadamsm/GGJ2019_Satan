@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95bfb3c0fd2aac942945fbc6448ed83f, type: 3}
+  m_Name: Chair
+  m_EditorClassIdentifier: 
+  mySprite: {fileID: 21300000, guid: c00ede4394cc3e849b3262205d9d9748, type: 3}
+  TimeToAdd: 9
+  SpeedModifier: 0.6
+  PointValue: 30
+  Type: Chair
+  spriteAnimationClip: {fileID: 0}

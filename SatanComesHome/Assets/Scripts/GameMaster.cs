@@ -24,19 +24,29 @@ public class GameMaster : MonoBehaviour
 	[SerializeField]
 	private PickupScriptableObject[] collectableData;
 
-	private List<Collectable> collectables = new List<Collectable>();
+	public List<Collectable> collectables = new List<Collectable>();
     private SatanTaskManager satanTaskManager;
 
-    void Start()
-    {
-		Random.InitState((int)System.DateTime.Now.Ticks);
+	public static GameMaster instance;
 
-		timer = timerStartValue;
-		GenerateLevel();
-        satanTaskManager = FindObjectOfType<SatanTaskManager>();
-        satanTaskManager.HideSpeechCloud();
+	void Awake()
+	{
+		if (instance == null)
+		{
+			instance = this;
 
-    }
+			Random.InitState((int)System.DateTime.Now.Ticks);
+
+			timer = timerStartValue;
+			GenerateLevel();
+			satanTaskManager = FindObjectOfType<SatanTaskManager>();
+			satanTaskManager.HideSpeechCloud();
+		}
+		else if (instance != this)
+			Destroy(gameObject);
+
+		DontDestroyOnLoad(gameObject);
+	}
 
     void Update()
     {
