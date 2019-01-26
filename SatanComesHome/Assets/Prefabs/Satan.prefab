@@ -276,7 +276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2378131195222857060}
   animator: {fileID: 5290094827481508237}
-  speed: 50
+  speed: 100
 --- !u!50 &2378131195222857060
 Rigidbody2D:
   serializedVersion: 4
@@ -292,7 +292,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
