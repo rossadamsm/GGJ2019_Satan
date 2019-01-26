@@ -1547,6 +1547,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4ad3c5ef0769e62429b6dab218f733cd, type: 2}
   - {fileID: 11400000, guid: 688669526c4df5749b2e27976c5a9452, type: 2}
   - {fileID: 11400000, guid: 8ef450d68541a314290de7c7415cd88b, type: 2}
+  - {fileID: 11400000, guid: 8ef450d68541a314290de7c7415cd88b, type: 2}
+  - {fileID: 11400000, guid: bdcae9c538338c043bb16df4d813d535, type: 2}
   collectables: []
 --- !u!114 &1961471782
 MonoBehaviour:

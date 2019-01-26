@@ -9,7 +9,5 @@ AnimatorOverrideController:
   m_Name: CoffeCup
   m_Controller: {fileID: 9100000, guid: dd5aec576e80f3147838755dcc23ed9c, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: 35b21a3b63e55bb448c0df090c2da7c5, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 141fcb76ec3b9114b92813881552d859, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: 6e232837e128f704eb3b3004f2715b62, type: 2}
-  - m_OriginalClip: {fileID: 7400000, guid: 6e232837e128f704eb3b3004f2715b62, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 35b21a3b63e55bb448c0df090c2da7c5, type: 2}

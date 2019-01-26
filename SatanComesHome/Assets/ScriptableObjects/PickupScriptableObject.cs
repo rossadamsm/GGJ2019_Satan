@@ -8,6 +8,5 @@ public class PickupScriptableObject : ScriptableObject
     public float SpeedModifier;
     public int PointValue;
     public string Type;
-    public AnimationClip spriteAnimationClip;
     public AnimatorOverrideController animationOverrideController;
 }

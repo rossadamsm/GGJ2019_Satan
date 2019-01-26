@@ -14,7 +14,7 @@ public class Collectable : MonoBehaviour
 
 	private new BoxCollider2D collider;
 	private SpriteRenderer spriteRenderer;
-	private new Animation animation;
+	private Animator animator;
 
 
     public cakeslice.Outline highlight;
@@ -24,7 +24,7 @@ public class Collectable : MonoBehaviour
 		collider = GetComponent<BoxCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         highlight = GetComponent<cakeslice.Outline>();
-        animation = GetComponent<Animation>();
+        animator = GetComponent<Animator>();
 
         if (pickupObject)
 		{
@@ -41,10 +41,9 @@ public class Collectable : MonoBehaviour
 		pointValue = pickupObject.PointValue;
         type = pickupObject.Type;
 
-        if (pickupObject.spriteAnimationClip != null)
+        if (pickupObject.animationOverrideController != null)
         {
-            animation.clip = pickupObject.spriteAnimationClip;
-            animation.Play();
+            animator.runtimeAnimatorController = pickupObject.animationOverrideController;
         }
         highlight.enabled = false;
 	}
