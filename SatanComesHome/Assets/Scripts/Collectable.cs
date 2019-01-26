@@ -29,6 +29,7 @@ public class Collectable : MonoBehaviour
 
 	public void Init(PickupScriptableObject pickupObject)
 	{
+		this.pickupObject = pickupObject;
 		spriteRenderer.sprite = pickupObject.mySprite;
 		timeAdd = pickupObject.TimeToAdd;
 		speedModifier = pickupObject.SpeedModifier;
