@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8629453930204779317}
   - component: {fileID: 5385816995604345944}
   - component: {fileID: 5201318965557773249}
-  - component: {fileID: 2428604146043400704}
   - component: {fileID: 4469242672972214338}
   - component: {fileID: 3577797756878234908}
   m_Layer: 0
@@ -73,7 +72,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300008, guid: f3d922e650ddc104a98175778210f37b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.819211, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -102,21 +101,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2428604146043400704
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3144174600871335797}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aeca15d1eac857a4094ed2eecfba28b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 4469242672972214338}
-  animator: {fileID: 5201318965557773249}
-  speed: 50
 --- !u!50 &4469242672972214338
 Rigidbody2D:
   serializedVersion: 4
