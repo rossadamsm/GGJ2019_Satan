@@ -9,8 +9,8 @@ public class Collectable : MonoBehaviour
 
     public PickupScriptableObject pickupObject;
 
-	private bool beingCarried = false;
-    public bool dropped = true;
+	[HideInInspector] public bool beingCarried = false;
+    [HideInInspector] public bool dropped = true;
 
 	private new BoxCollider2D collider;
 	private SpriteRenderer spriteRenderer;
@@ -51,12 +51,14 @@ public class Collectable : MonoBehaviour
 
     public void Pickup(Transform anchor)
     {
+        beingCarried = true;
         transform.SetParent(anchor.transform);
         transform.position = anchor.position;
     }
 
     public void Drop()
     {
+        beingCarried = false;
         transform.SetParent(null);
     }
 
