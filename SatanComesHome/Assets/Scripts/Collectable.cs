@@ -8,7 +8,7 @@ public class Collectable : MonoBehaviour
 	[SerializeField]
 	private string type;
 
-    public PickupScriptableObject pickupObject;
+    //public PickupScriptableObject pickupObject;
 
 	private bool beingCarried = false;
     public bool dropped = true;
@@ -21,10 +21,15 @@ public class Collectable : MonoBehaviour
 		collider = GetComponent<BoxCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        spriteRenderer.sprite = pickupObject.mySprite;
-        timeAdd = pickupObject.TimeToAdd;
-        speedModifier = pickupObject.SpeedModifier;
-        pointValue = pickupObject.PointValue;
+        
+	}
+
+	public void Init(PickupScriptableObject pickupObject)
+	{
+		spriteRenderer.sprite = pickupObject.mySprite;
+		timeAdd = pickupObject.TimeToAdd;
+		speedModifier = pickupObject.SpeedModifier;
+		pointValue = pickupObject.PointValue;
 	}
 
     public void Pickup(Transform anchor)
