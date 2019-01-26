@@ -5,13 +5,15 @@ public class StoryManager : MonoBehaviour
 {
     [SerializeField] private CinemachineVirtualCamera[] cinemachineVirtualCameras;
 
-    private int frameIndex = 0;
+    private AudioSource pageTurnSource;
 
+    private int frameIndex = 0;
     private int previousPriority;
 
     private void Awake()
     {
         previousPriority = cinemachineVirtualCameras[0].Priority;
+        pageTurnSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -25,6 +27,8 @@ public class StoryManager : MonoBehaviour
     public void MoveToNextFrame()
     {
         frameIndex++;
+
+        pageTurnSource.Play();
 
         if (frameIndex >= cinemachineVirtualCameras.Length)
             frameIndex = 0;
