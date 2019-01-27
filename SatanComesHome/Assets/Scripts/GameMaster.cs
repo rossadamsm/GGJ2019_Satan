@@ -61,8 +61,6 @@ public class GameMaster : MonoBehaviour
 		}
 		else if (instance != this)
 			Destroy(gameObject);
-
-		DontDestroyOnLoad(gameObject);
 	}
 
 	public void SetNewTarget()

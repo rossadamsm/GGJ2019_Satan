@@ -48,6 +48,7 @@ public class CharacterController : MonoBehaviour
 			if (currentPickedupCollectable != null)
 			{
 				currentPickedupCollectable.Drop();
+				speed = 100;
 			}
 			transform.position = hellTeleportPoint.position;
 		}

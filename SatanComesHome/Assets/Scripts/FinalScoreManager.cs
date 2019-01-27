@@ -40,7 +40,7 @@ public class FinalScoreManager : MonoBehaviour
 	void Start()
 	{
 		//scoreObject = GameObject.Find("ScoreObject").GetComponent<ScoreObject>();
-		//scoreText.text = ScoreManager.instance.score.ToString();
+		scoreText.text = ScoreManager.instance.score.ToString();
 
 		//continuesound = GetComponent<AudioSource>();
 
@@ -185,6 +185,11 @@ public class FinalScoreManager : MonoBehaviour
 			}
 		}
 		);
+	}
+
+	public void RestartGame()
+	{
+		SceneManager.LoadScene("Main");
 	}
 }
 
