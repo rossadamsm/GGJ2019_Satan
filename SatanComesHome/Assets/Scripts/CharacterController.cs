@@ -37,8 +37,9 @@ public class CharacterController : MonoBehaviour
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		anchor = GetComponentInChildren<Transform>();
 
-		//GameMaster.instance.SetNewTarget();
-        SoundManager.instance.PlayLoop(hell);
+		GameMaster.instance.SetNewTarget();
+		GameMaster.instance.satanTaskManager.HideSpeechCloud();
+		SoundManager.instance.PlayLoop(hell);
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision)
