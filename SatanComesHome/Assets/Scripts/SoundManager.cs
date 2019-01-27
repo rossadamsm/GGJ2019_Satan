@@ -65,6 +65,11 @@ public class SoundManager : MonoBehaviour
         PlaySingle(portalsound);
     }
 
+    public void PlayDropSoundsingle()
+    {
+        PlaySingle(drop);
+    }
+
     private AudioClip GetRandomClip(AudioClip[] audioclips)
     {
         int index = Random.Range(0, audioclips.Length - 1);

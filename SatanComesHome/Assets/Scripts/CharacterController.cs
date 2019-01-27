@@ -136,6 +136,7 @@ public class CharacterController : MonoBehaviour
 				currentPickedupCollectable.gameObject.transform.localScale = new Vector3(1, 1, 1);
 				currentPickedupCollectable = null;
 				speed = 100;
+                SoundManager.instance.PlayDropSoundsingle();
 			}
 			else if (currentTouchedCollectable != null)
 			{
