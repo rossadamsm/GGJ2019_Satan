@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class EscapeManager : MonoBehaviour
 {
+	void Awake()
+	{
+		Cursor.visible = false;
+	}
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))

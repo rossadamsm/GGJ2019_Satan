@@ -51,6 +51,7 @@ public class FinalScoreManager : MonoBehaviour
 
 		PopulateHighscores();
         SoundManager.instance.PlayCelebrate();
+		Cursor.visible = true;
 	}
 
 	#region private members
@@ -132,7 +133,9 @@ public class FinalScoreManager : MonoBehaviour
 				if (responseObject.Exception == null)
 				   {
 					   Debug.Log(Encoding.ASCII.GetString(responseObject.Response.Payload.ToArray()) + "\n");
-                       PopulateHighscores();
+					   playerName.text = "";
+
+					   PopulateHighscores();
 
                        //ScoreManager.firstLoad = true;
                        //SimpleSceneFader.ChangeSceneWithFade("MainMenu", 2.0f);
@@ -141,6 +144,8 @@ public class FinalScoreManager : MonoBehaviour
                    else
 				   {
 					   Debug.Log(responseObject.Exception + "\n");
+
+					   playerName.text = "";
 					   //SceneManager.LoadScene("MainMenu");
 				   }
 			   }
