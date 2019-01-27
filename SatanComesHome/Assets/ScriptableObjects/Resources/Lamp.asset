@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: Lamp
   m_EditorClassIdentifier: 
   mySprite: {fileID: 21300000, guid: fe7f05edae69882438cc65dce021f505, type: 3}
-  TimeToAdd: 4
-  SpeedModifier: 0.9
-  PointValue: 10
+  weightCategory: 3
   Type: lamp
   animationOverrideController: {fileID: 0}

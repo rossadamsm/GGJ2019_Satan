@@ -4,9 +4,16 @@
 public class PickupScriptableObject : ScriptableObject
 {
     public Sprite mySprite;
-    public float TimeToAdd;
-    public float SpeedModifier;
-    public int PointValue;
+	public WeightCategory weightCategory;
     public string Type;
     public AnimatorOverrideController animationOverrideController;
+}
+
+public enum WeightCategory
+{
+	SuperHeavy,
+	Heavy,
+	Medium,
+	Light,
+	VeryLight
 }

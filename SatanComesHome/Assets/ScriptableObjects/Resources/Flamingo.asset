@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: Flamingo
   m_EditorClassIdentifier: 
   mySprite: {fileID: 21300000, guid: 662af51d071b33e4a82e4fd9c5c6b446, type: 3}
-  TimeToAdd: 2
-  SpeedModifier: 1
-  PointValue: 5
+  weightCategory: 3
   Type: Flamingo
   animationOverrideController: {fileID: 0}

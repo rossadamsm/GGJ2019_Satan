@@ -2,9 +2,9 @@
 
 public class Collectable : MonoBehaviour
 {
-	private float timeAdd = 10f;
-	private float speedModifier = 0f;
-	private int pointValue;
+	public float timeAdd = 10f;
+	public float speedModifier = 0f;
+	public int pointValue;
 	private string type;
 
     public PickupScriptableObject pickupObject;
@@ -36,9 +36,35 @@ public class Collectable : MonoBehaviour
 	{
 		this.pickupObject = pickupObject;
 		spriteRenderer.sprite = pickupObject.mySprite;
-		timeAdd = pickupObject.TimeToAdd;
-		speedModifier = pickupObject.SpeedModifier;
-		pointValue = pickupObject.PointValue;
+		switch (pickupObject.weightCategory)
+		{
+			case WeightCategory.SuperHeavy:
+				timeAdd = 10;
+				speedModifier = 0.5f;
+				pointValue = 40;
+				break;
+			case WeightCategory.Heavy:
+				timeAdd = 8;
+				speedModifier = 0.6f;
+				pointValue = 30;
+				break;
+			case WeightCategory.Medium:
+				timeAdd = 6;
+				speedModifier = 0.75f;
+				pointValue = 20;
+				break;
+			case WeightCategory.Light:
+				timeAdd = 4;
+				speedModifier = 0.9f;
+				pointValue = 10;
+				break;
+			case WeightCategory.VeryLight:
+				timeAdd = 2;
+				speedModifier = 1f;
+				pointValue = 5;
+				break;
+		}
+		
         type = pickupObject.Type;
 
         if (pickupObject.animationOverrideController != null)
@@ -48,7 +74,7 @@ public class Collectable : MonoBehaviour
         highlight.enabled = false;
 	}
 
-    private void OnTriggerEnter2D(Collider2D collision)
+	private void OnTriggerEnter2D(Collider2D collision)
     {
 		if (collision.transform.tag == "Player")
 		{
@@ -108,13 +134,13 @@ public class Collectable : MonoBehaviour
 		if (pickupObject.Type == GameMaster.instance.satanTaskManager.CurrentTask)
 		{
 			GameMaster.instance.ShowScoreMultiplier();
-			GameMaster.instance.ChangeTimer(pickupObject.TimeToAdd * 2);
-			GameMaster.instance.ChangeScore(pickupObject.PointValue * 2);
+			GameMaster.instance.ChangeTimer(timeAdd * 2);
+			GameMaster.instance.ChangeScore(pointValue * 2);
 		}
 		else
 		{
-			GameMaster.instance.ChangeTimer(pickupObject.TimeToAdd);
-			GameMaster.instance.ChangeScore(pickupObject.PointValue);
+			GameMaster.instance.ChangeTimer(timeAdd);
+			GameMaster.instance.ChangeScore(pointValue);
 		}
 		GameMaster.instance.collectables.Remove(this);
 		collider.enabled = false;

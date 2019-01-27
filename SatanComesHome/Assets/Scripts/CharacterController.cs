@@ -142,7 +142,7 @@ public class CharacterController : MonoBehaviour
 				currentTouchedCollectable.Pickup(anchor);
 				currentPickedupCollectable = currentTouchedCollectable;
 				PickupScriptableObject CurrObject = currentPickedupCollectable.pickupObject;
-				speed *= CurrObject.SpeedModifier;
+				speed *= currentPickedupCollectable.speedModifier;
 			}
 		}
 		if (Input.GetKeyDown(KeyCode.R))

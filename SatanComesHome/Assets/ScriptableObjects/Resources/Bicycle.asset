@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: Bicycle
   m_EditorClassIdentifier: 
   mySprite: {fileID: 21300000, guid: ee6b879eea8658143a44791037146fd8, type: 3}
-  TimeToAdd: 6
-  SpeedModifier: 0.9
-  PointValue: 15
+  weightCategory: 2
   Type: Bicycle
   animationOverrideController: {fileID: 0}
