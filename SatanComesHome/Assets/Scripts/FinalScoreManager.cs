@@ -10,12 +10,13 @@ using Amazon;
 using System.Text;
 using Amazon.Lambda.Model;
 using System.Text.RegularExpressions;
+using TMPro;
 
 public class FinalScoreManager : MonoBehaviour
 {
-	public Text scoreText;
-	public Text playerName;
-	public Text highscoreText;
+	public TextMeshProUGUI scoreText;
+	public TextMeshProUGUI playerName;
+	public TextMeshProUGUI highscoreText;
 
 	//ScoreObject scoreObject;
 
@@ -122,7 +123,7 @@ public class FinalScoreManager : MonoBehaviour
 			Client.InvokeAsync(new Amazon.Lambda.Model.InvokeRequest()
 			{
 				FunctionName = "WriteHighscore",
-				Payload = "{\"Name\" : \"" + username + "\", \"score\" : " + ScoreManager.instance.score.ToString() + "}"
+				Payload = "{\"Name\" : \"" + username.Replace(@"\\u200b","") + "\", \"score\" : " + ScoreManager.instance.score.ToString() + "}"
 			},
 			   (responseObject) =>
 			   {
@@ -130,18 +131,21 @@ public class FinalScoreManager : MonoBehaviour
 				if (responseObject.Exception == null)
 				   {
 					   Debug.Log(Encoding.ASCII.GetString(responseObject.Response.Payload.ToArray()) + "\n");
-					   //ScoreManager.firstLoad = true;
-					//SimpleSceneFader.ChangeSceneWithFade("MainMenu", 2.0f);
-					SceneManager.LoadScene("MainMenu");
-				   }
-				   else
+                       PopulateHighscores();
+
+                       //ScoreManager.firstLoad = true;
+                       //SimpleSceneFader.ChangeSceneWithFade("MainMenu", 2.0f);
+                       //SceneManager.LoadScene("MainMenu");
+                   }
+                   else
 				   {
 					   Debug.Log(responseObject.Exception + "\n");
-					   SceneManager.LoadScene("MainMenu");
+					   //SceneManager.LoadScene("MainMenu");
 				   }
 			   }
 			   );
 		}
+
 	}
 
 	public void PopulateHighscores()
@@ -165,12 +169,13 @@ public class FinalScoreManager : MonoBehaviour
 				string scoreString = response.Substring(response.IndexOf('[') + 1, response.LastIndexOf(']') - response.IndexOf('[') - 1);
 				string[] scores = scoreString.Split(',');
 
-				highscoreText.text = "HIGHSCORES:\n";
+				highscoreText.text = "HIGHSCORES:\n\n";
 
 				for (int i = 0; i < scores.Length; i++)
 				{
-					highscoreText.text += (i + 1).ToString() + ") " + scores[i].Substring(scores[i].IndexOf('"') + 1, scores[i].LastIndexOf('\\') - scores[i].IndexOf('\"') - 1) + "\n";
-				}
+					highscoreText.text += (i + 1).ToString() + ") " + scores[i].Substring(scores[i].IndexOf('"') + 1, scores[i].LastIndexOf('\\') - scores[i].IndexOf('\"') - 1) + "\n\n";
+                    highscoreText.text = highscoreText.text.Replace(@"\\u200b", "");
+                }
 
 				//SceneManager.LoadScene("MainMenu");
 			}

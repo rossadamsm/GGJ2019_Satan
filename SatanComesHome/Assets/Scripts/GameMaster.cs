@@ -1,8 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameMaster : MonoBehaviour
 {
@@ -16,19 +16,19 @@ public class GameMaster : MonoBehaviour
 	[SerializeField]
 	private int numberOfCollectablesToSpawn = 25;
 	[SerializeField]
-	private Text timerText;
+	private TextMeshProUGUI timerText;
 	[SerializeField]
-	private Text scoreText;
+	private TextMeshProUGUI scoreText;
 	[SerializeField]
 	private SpawnArea[] spawnAreas;
 	[SerializeField]
 	private GameObject collectablePrefab;
-	[SerializeField]
-	private PickupScriptableObject[] collectableData;
-	[SerializeField]
+    [SerializeField]
 	private GameObject priestPrefab;
 
-	public List<Collectable> collectables = new List<Collectable>();
+    [SerializeField] private PickupScriptableObject[] collectableData;
+
+    public List<Collectable> collectables = new List<Collectable>();
     public SatanTaskManager satanTaskManager;
 
 	public static GameMaster instance;
@@ -41,7 +41,9 @@ public class GameMaster : MonoBehaviour
 		{
 			instance = this;
 
-			Random.InitState((int)System.DateTime.Now.Ticks);
+            collectableData = Resources.LoadAll<PickupScriptableObject>(""); //Resources.LoadAll<PickupScriptableObject>("ScriptableObjects");
+
+            Random.InitState((int)System.DateTime.Now.Ticks);
 
 			timer = timerStartValue;
 			GenerateLevel();
@@ -51,6 +53,7 @@ public class GameMaster : MonoBehaviour
 			priestScoreCounter = priestSpawnInterval;
 
 			Instantiate(priestPrefab, spawnAreas[Random.Range(0, spawnAreas.Length)].GetPositionWithinArea(), Quaternion.identity);
+
 		}
 		else if (instance != this)
 			Destroy(gameObject);

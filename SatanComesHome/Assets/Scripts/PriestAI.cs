@@ -11,6 +11,7 @@ public class PriestAI : MonoBehaviour
 {
     public PriestState myState;
     public float speed = 1;
+    public ParticleSystem[] foundPlayerParticleSystems;
 
     private Animator animator;
     private Rigidbody2D rb;
@@ -67,8 +68,15 @@ public class PriestAI : MonoBehaviour
 
     private void Chase()
     {
-        if(previousState!= PriestState.Chase)
+        if (previousState != PriestState.Chase)
+        {
             SoundManager.instance.PlayPriestSound();
+            if (foundPlayerParticleSystems != null)
+            {
+                foreach (var particleSystem in foundPlayerParticleSystems)
+                    particleSystem.Play();
+            }
+        }
 
         Vector2 direction = player.position - transform.position;
         direction.Normalize();
