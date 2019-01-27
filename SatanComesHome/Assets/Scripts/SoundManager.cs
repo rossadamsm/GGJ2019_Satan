@@ -12,6 +12,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip[] dropSounds;
     public AudioClip[] priestSounds;
     public AudioClip portalsound;
+    public AudioClip drop;
 
     void Awake()
     {
