@@ -11,6 +11,7 @@ public class SoundManager : MonoBehaviour
 
     public AudioClip[] dropSounds;
     public AudioClip[] priestSounds;
+    public AudioClip portalsound;
 
     void Awake()
     {
@@ -58,6 +59,10 @@ public class SoundManager : MonoBehaviour
         PlaySingle(GetRandomClip(dropSounds));
     }
 
+    public void PlayPortalSound()
+    {
+        PlaySingle(portalsound);
+    }
 
     private AudioClip GetRandomClip(AudioClip[] audioclips)
     {

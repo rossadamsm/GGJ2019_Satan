@@ -74,6 +74,7 @@ public class Portal : MonoBehaviour
 	{
         active = false;
         otherPortal.active = false;
+        SoundManager.instance.PlayPortalSound();
 
         //yield return (new WaitForSeconds(0.35f));
         portalAnimation.SetActive(true);
