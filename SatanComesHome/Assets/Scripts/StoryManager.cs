@@ -36,6 +36,7 @@ public class StoryManager : MonoBehaviour
 		if (frameIndex >= cinemachineVirtualCameras.Length)
 		{
 			SimpleSceneFader.ChangeSceneWithFade("Main", 1f);
+            return;
 			//SceneManager.LoadScene("Main");
 			//frameIndex = 0;
 		}
