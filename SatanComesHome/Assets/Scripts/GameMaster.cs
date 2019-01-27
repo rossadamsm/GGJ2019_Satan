@@ -140,6 +140,7 @@ public class GameMaster : MonoBehaviour
 		//SceneManager.LoadScene("GameOver");
 		SimpleSceneFader.ChangeSceneWithFade("GameOver", 1f);
         SoundManager.instance.PlaySingle(celebrate);
+        SoundManager.instance.musicSource.Stop();
 	}
 
 	public void ShowScoreMultiplier()

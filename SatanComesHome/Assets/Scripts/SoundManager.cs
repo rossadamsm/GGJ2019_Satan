@@ -13,6 +13,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip[] priestSounds;
     public AudioClip portalsound;
     public AudioClip drop;
+    public AudioClip death;
 
     void Awake()
     {
@@ -68,6 +69,11 @@ public class SoundManager : MonoBehaviour
     public void PlayDropSoundsingle()
     {
         PlaySingle(drop);
+    }
+
+    public void PlayDeathSound()
+    {
+        PlaySingle(death);
     }
 
     private AudioClip GetRandomClip(AudioClip[] audioclips)

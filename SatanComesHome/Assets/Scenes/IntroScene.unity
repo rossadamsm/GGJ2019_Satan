@@ -836,6 +836,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 292339013923161794, guid: e144adf136b50fb449c201ce65c92814,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 292339013665155415, guid: e144adf136b50fb449c201ce65c92814,
         type: 3}
       propertyPath: portalsound
@@ -846,11 +851,11 @@ PrefabInstance:
       propertyPath: drop
       value: 
       objectReference: {fileID: 8300000, guid: 2ade0192dba9bd846be7c7c2292fb891, type: 3}
-    - target: {fileID: 292339013923161794, guid: e144adf136b50fb449c201ce65c92814,
+    - target: {fileID: 292339013665155415, guid: e144adf136b50fb449c201ce65c92814,
         type: 3}
-      propertyPath: Loop
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: death
+      value: 
+      objectReference: {fileID: 8300000, guid: 9b3118a5c9f2cbb46b329a78d3122101, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e144adf136b50fb449c201ce65c92814, type: 3}
 --- !u!1 &349014681

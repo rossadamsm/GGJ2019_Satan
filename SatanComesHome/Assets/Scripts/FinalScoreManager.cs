@@ -189,7 +189,7 @@ public class FinalScoreManager : MonoBehaviour
 
 	public void RestartGame()
 	{
-		//SceneManager.LoadScene("Main");
+        //SceneManager.LoadScene("Main");
 		SimpleSceneFader.ChangeSceneWithFade("Main", 1f);
 	}
 }

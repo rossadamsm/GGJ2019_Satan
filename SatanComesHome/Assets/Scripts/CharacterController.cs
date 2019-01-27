@@ -33,6 +33,7 @@ public class CharacterController : MonoBehaviour
 
     private bool haveAScareCrowToDrop = true;
 
+    public GameObject exorcismprefab;
 
     // Start is called before the first frame update
     void Start()
@@ -44,7 +45,8 @@ public class CharacterController : MonoBehaviour
 
 		GameMaster.instance.SetNewTarget();
 		GameMaster.instance.satanTaskManager.HideSpeechCloud();
-		SoundManager.instance.PlayLoop(hell);
+        SoundManager.instance.musicSource.Stop();
+        SoundManager.instance.PlayLoop(hell);
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision)
@@ -57,7 +59,13 @@ public class CharacterController : MonoBehaviour
 				speed = 100;
 			}
 			transform.position = hellTeleportPoint.position;
-		}
+            //Instantiate(exorcismprefab);
+            //exorcismprefab.GetComponent<Animator>().StopPlayback();
+            //exorcismprefab.GetComponent<Animator>().StartPlayback();
+            exorcismprefab.transform.localPosition = new Vector3(0, 17.4f, 0);
+            exorcismprefab.GetComponent<Animator>().Play("Exorcism", -1, 0);
+            SoundManager.instance.PlayDeathSound();
+        }
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)
