@@ -135,7 +135,8 @@ public class GameMaster : MonoBehaviour
 
 		//Go to score screen
 		gameOver = true;
-		SceneManager.LoadScene("GameOver");
+		//SceneManager.LoadScene("GameOver");
+		SimpleSceneFader.ChangeSceneWithFade("GameOver", 1f);
 	}
 
 	public void ShowScoreMultiplier()
