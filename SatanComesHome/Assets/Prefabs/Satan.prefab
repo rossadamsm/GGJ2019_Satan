@@ -277,6 +277,12 @@ MonoBehaviour:
   rb: {fileID: 2378131195222857060}
   animator: {fileID: 5290094827481508237}
   speed: 100
+  spriteRenderer: {fileID: 0}
+  inHell: 0
+  ppManager: {fileID: 0}
+  hellTeleportPoint: {fileID: 0}
+  hell: {fileID: 0}
+  sneak: {fileID: 0}
 --- !u!50 &2378131195222857060
 Rigidbody2D:
   serializedVersion: 4
