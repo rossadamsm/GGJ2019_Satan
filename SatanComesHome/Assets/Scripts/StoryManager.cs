@@ -33,9 +33,12 @@ public class StoryManager : MonoBehaviour
 
         pageTurnSource.Play();
 
-        if (frameIndex >= cinemachineVirtualCameras.Length)
-            SceneManager.LoadScene("Main");
-            //frameIndex = 0;
+		if (frameIndex >= cinemachineVirtualCameras.Length)
+		{
+			SimpleSceneFader.ChangeSceneWithFade("Main", 1f);
+			//SceneManager.LoadScene("Main");
+			//frameIndex = 0;
+		}
 
         previousPriority *= 2;
         cinemachineVirtualCameras[frameIndex].Priority = previousPriority;
