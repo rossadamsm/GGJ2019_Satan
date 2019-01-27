@@ -17,6 +17,7 @@ public class FinalScoreManager : MonoBehaviour
 	public TextMeshProUGUI scoreText;
 	public TextMeshProUGUI playerName;
 	public TextMeshProUGUI highscoreText;
+	public GameObject submitButton;
 
 	//ScoreObject scoreObject;
 
@@ -136,11 +137,12 @@ public class FinalScoreManager : MonoBehaviour
 					   playerName.text = "";
 
 					   PopulateHighscores();
+					   submitButton.SetActive(false);
 
-                       //ScoreManager.firstLoad = true;
-                       //SimpleSceneFader.ChangeSceneWithFade("MainMenu", 2.0f);
-                       //SceneManager.LoadScene("MainMenu");
-                   }
+					   //ScoreManager.firstLoad = true;
+					   //SimpleSceneFader.ChangeSceneWithFade("MainMenu", 2.0f);
+					   //SceneManager.LoadScene("MainMenu");
+				   }
                    else
 				   {
 					   Debug.Log(responseObject.Exception + "\n");
