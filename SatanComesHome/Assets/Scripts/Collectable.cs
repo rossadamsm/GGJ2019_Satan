@@ -79,6 +79,8 @@ public class Collectable : MonoBehaviour
     {
         beingCarried = false;
         transform.SetParent(null);
+
+        FindObjectOfType<ShakeManager>().ShakeCamera();
     }
 
 	public void Interact(Transform transform)
