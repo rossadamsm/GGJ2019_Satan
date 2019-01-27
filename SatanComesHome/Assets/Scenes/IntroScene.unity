@@ -140,7 +140,7 @@ Animator:
   m_GameObject: {fileID: 7454137}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3e246cfc7701d5e4a8f7f3e162e9bfd3, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5a43303bc100e0b48864b3b48e56eeb1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -387,7 +387,7 @@ Animator:
   m_GameObject: {fileID: 65286122}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3e246cfc7701d5e4a8f7f3e162e9bfd3, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5a43303bc100e0b48864b3b48e56eeb1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1113,6 +1113,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 292339013923161794, guid: e144adf136b50fb449c201ce65c92814,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 292339013665155415, guid: e144adf136b50fb449c201ce65c92814,
         type: 3}
       propertyPath: portalsound
@@ -1133,11 +1138,6 @@ PrefabInstance:
       propertyPath: celebrate
       value: 
       objectReference: {fileID: 8300000, guid: 1103adc1fd07f60439a9c198450c1481, type: 3}
-    - target: {fileID: 292339013923161794, guid: e144adf136b50fb449c201ce65c92814,
-        type: 3}
-      propertyPath: Loop
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e144adf136b50fb449c201ce65c92814, type: 3}
 --- !u!1 &349014681
@@ -1555,7 +1555,7 @@ Animator:
   m_GameObject: {fileID: 486652344}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3e246cfc7701d5e4a8f7f3e162e9bfd3, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5a43303bc100e0b48864b3b48e56eeb1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3524,7 +3524,7 @@ Animator:
   m_GameObject: {fileID: 2063868911}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3e246cfc7701d5e4a8f7f3e162e9bfd3, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5a43303bc100e0b48864b3b48e56eeb1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
