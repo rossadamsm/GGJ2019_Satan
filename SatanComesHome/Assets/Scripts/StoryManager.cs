@@ -33,7 +33,7 @@ public class StoryManager : MonoBehaviour
 
         pageTurnSource.Play();
 
-		if (frameIndex >= cinemachineVirtualCameras.Length - 1)
+		if (frameIndex >= cinemachineVirtualCameras.Length)
 		{
 			SimpleSceneFader.ChangeSceneWithFade("Main", 1f);
             return;
