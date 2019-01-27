@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public enum PriestState
 {
@@ -19,6 +20,10 @@ public class PriestAI : MonoBehaviour
     private Transform player;
     private PriestState previousState;
 
+    public List<Scarecrow> scarecrows = new List<Scarecrow>();
+
+    Scarecrow scareCrowToChase;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -34,10 +39,34 @@ public class PriestAI : MonoBehaviour
 
     private void Update()
     {
-        if (Vector2.Distance(player.transform.position,transform.position) < 50)
-            myState = PriestState.Chase;
+        if (scarecrows.Count > 0)
+        {
+            foreach (var scarecrow in scarecrows)
+            {
+                if (Vector2.Distance(player.transform.position, scarecrow.transform.position) < 50)
+                {
+                    scareCrowToChase = scarecrow;
+                    myState = PriestState.Chase;
+                }
+            }
+
+            if (scareCrowToChase == null)
+            {
+                if (Vector2.Distance(player.transform.position, transform.position) < 50)
+                    myState = PriestState.Chase;
+                else
+                    myState = PriestState.Roam;
+            }
+        }
         else
-            myState = PriestState.Roam;
+        {
+            if (Vector2.Distance(player.transform.position, transform.position) < 50)
+                myState = PriestState.Chase;
+            else
+                myState = PriestState.Roam;
+
+            scareCrowToChase = null;
+        }
 
         switch (myState)
         {
@@ -78,7 +107,13 @@ public class PriestAI : MonoBehaviour
             }
         }
 
-        Vector2 direction = player.position - transform.position;
+        Vector2 direction;
+
+        if (scareCrowToChase!=null)
+            direction = scareCrowToChase.transform.position - transform.position;
+        else
+            direction = player.position - transform.position;
+
         direction.Normalize();
         Move = direction;
 
