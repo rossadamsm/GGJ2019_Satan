@@ -65,7 +65,9 @@ public class CharacterController : MonoBehaviour
             exorcismprefab.transform.localPosition = new Vector3(0, 17.4f, 0);
             exorcismprefab.GetComponent<Animator>().Play("Exorcism", -1, 0);
             SoundManager.instance.PlayDeathSound();
-        }
+			currentPickedupCollectable = null;
+
+		}
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)
