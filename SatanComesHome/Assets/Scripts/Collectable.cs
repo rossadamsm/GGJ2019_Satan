@@ -80,7 +80,8 @@ public class Collectable : MonoBehaviour
         beingCarried = false;
         transform.SetParent(null);
 
-        FindObjectOfType<ShakeManager>().ShakeCamera();
+        //FindObjectOfType<ShakeManager>().ShakeCamera();
+        FindObjectOfType<ShakeManager>().ShakeCinemachineLerp(this);
     }
 
 	public void Interact(Transform transform)
