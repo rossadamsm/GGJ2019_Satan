@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterController : MonoBehaviour
 {
@@ -34,6 +35,8 @@ public class CharacterController : MonoBehaviour
     private bool haveAScareCrowToDrop = true;
 
     public GameObject exorcismprefab;
+
+    public Image scareCrowRenderer;
 
     // Start is called before the first frame update
     void Start()
@@ -133,9 +136,14 @@ public class CharacterController : MonoBehaviour
 		rb.velocity = Move * speed;
 
 		HandleInput();
-	}
 
-	private void HandleInput()
+        if (haveAScareCrowToDrop)
+            scareCrowRenderer.enabled = true;
+        else
+            scareCrowRenderer.enabled = false;
+    }
+
+    private void HandleInput()
 	{
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
@@ -172,7 +180,7 @@ public class CharacterController : MonoBehaviour
             {
                 Instantiate(scareCrowPrefab, transform.position, Quaternion.identity);
                 haveAScareCrowToDrop = false;
-                Invoke("ResetScareCrow", 10);
+                Invoke("ResetScareCrow", 5);
             }
         }
 	}

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Scarecrow : MonoBehaviour
 {
-    private float lifeTime = 3f;
+    private float lifeTime = 2f;
 
     private PriestAI[] priests;
 
