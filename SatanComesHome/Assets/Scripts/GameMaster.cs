@@ -38,8 +38,6 @@ public class GameMaster : MonoBehaviour
 
 	bool gameOver = false;
 
-    public AudioClip celebrate;
-
 	void Awake()
 	{
 		if (instance == null)
@@ -139,7 +137,6 @@ public class GameMaster : MonoBehaviour
 		gameOver = true;
 		//SceneManager.LoadScene("GameOver");
 		SimpleSceneFader.ChangeSceneWithFade("GameOver", 1f);
-        SoundManager.instance.PlaySingle(celebrate);
         SoundManager.instance.musicSource.Stop();
 	}
 

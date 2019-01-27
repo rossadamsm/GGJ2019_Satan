@@ -1054,6 +1054,11 @@ PrefabInstance:
       propertyPath: death
       value: 
       objectReference: {fileID: 8300000, guid: 9b3118a5c9f2cbb46b329a78d3122101, type: 3}
+    - target: {fileID: 292339013665155415, guid: e144adf136b50fb449c201ce65c92814,
+        type: 3}
+      propertyPath: celebrate
+      value: 
+      objectReference: {fileID: 8300000, guid: 1103adc1fd07f60439a9c198450c1481, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e144adf136b50fb449c201ce65c92814, type: 3}
 --- !u!1 &349014681

@@ -494,38 +494,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!84 &32207516
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 1148
-  m_Height: 520
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!4 &36184427 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 499836, guid: 78892530d39aaea41a7f4adc11f8c866,
@@ -730,38 +698,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!84 &74928098
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 1148
-  m_Height: 520
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &87648359
 GameObject:
   m_ObjectHideFlags: 0
@@ -4731,8 +4667,8 @@ MonoBehaviour:
   sourceCamera: {fileID: 720215697}
   outlineCamera: {fileID: 1169878928}
   outlineShaderMaterial: {fileID: 0}
-  renderTexture: {fileID: 32207516}
-  extraRenderTexture: {fileID: 74928098}
+  renderTexture: {fileID: 1517050779}
+  extraRenderTexture: {fileID: 737790054}
 --- !u!114 &720215701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4825,6 +4761,38 @@ MonoBehaviour:
   view: {fileID: 0}
   earthprofile: {fileID: 11400000, guid: 7cb6d992189d7fe49bdbc4ef8eecb627, type: 2}
   hellprofile: {fileID: 11400000, guid: bb2e9c754926f544aa7124301fa2b123, type: 2}
+--- !u!84 &737790054
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 1148
+  m_Height: 520
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &749645044
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21364,7 +21332,6 @@ MonoBehaviour:
   collectableData: []
   collectables: []
   satanTaskManager: {fileID: 1716729332}
-  celebrate: {fileID: 8300000, guid: 1103adc1fd07f60439a9c198450c1481, type: 3}
 --- !u!4 &1031023275
 Transform:
   m_ObjectHideFlags: 0
@@ -22674,7 +22641,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 0
   m_RenderingPath: 1
-  m_TargetTexture: {fileID: 32207516}
+  m_TargetTexture: {fileID: 1517050779}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -24153,6 +24120,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaBounds: {x: 194.1, y: 106.66}
+--- !u!84 &1517050779
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 1148
+  m_Height: 520
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!4 &1530738066 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 468332, guid: d8ac9950df006754ea1bf8311f5c97bc,

@@ -50,6 +50,7 @@ public class FinalScoreManager : MonoBehaviour
 		AWSConfigs.HttpClient = AWSConfigs.HttpClientOption.UnityWebRequest;
 
 		PopulateHighscores();
+        SoundManager.instance.PlayCelebrate();
 	}
 
 	#region private members
@@ -190,6 +191,7 @@ public class FinalScoreManager : MonoBehaviour
 	public void RestartGame()
 	{
         //SceneManager.LoadScene("Main");
+        SoundManager.instance.musicSource.Stop();
 		SimpleSceneFader.ChangeSceneWithFade("Main", 1f);
 	}
 }

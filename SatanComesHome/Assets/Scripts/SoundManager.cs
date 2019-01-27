@@ -14,6 +14,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip portalsound;
     public AudioClip drop;
     public AudioClip death;
+    public AudioClip celebrate;
 
     void Awake()
     {
@@ -74,6 +75,11 @@ public class SoundManager : MonoBehaviour
     public void PlayDeathSound()
     {
         PlaySingle(death);
+    }
+
+    public void PlayCelebrate()
+    {
+        PlayLoop(celebrate);
     }
 
     private AudioClip GetRandomClip(AudioClip[] audioclips)
