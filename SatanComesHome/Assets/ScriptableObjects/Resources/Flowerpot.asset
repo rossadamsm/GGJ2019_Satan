@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: Flowerpot
   m_EditorClassIdentifier: 
   mySprite: {fileID: 21300000, guid: e0ed2342782cab443b7c103fab93d7a3, type: 3}
-  TimeToAdd: 1
-  SpeedModifier: 1
-  PointValue: 5
+  weightCategory: 4
   Type: flowerpot
   animationOverrideController: {fileID: 0}

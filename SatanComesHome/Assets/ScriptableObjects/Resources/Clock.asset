@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: Clock
   m_EditorClassIdentifier: 
   mySprite: {fileID: 21300000, guid: afa31e45a6bc2d642b92b2333b56c7e2, type: 3}
-  TimeToAdd: 5
-  SpeedModifier: 0.8
-  PointValue: 30
+  weightCategory: 1
   Type: clock
   animationOverrideController: {fileID: 0}

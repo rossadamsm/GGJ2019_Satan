@@ -13,9 +13,7 @@ MonoBehaviour:
   m_Name: Cuppa
   m_EditorClassIdentifier: 
   mySprite: {fileID: 21300000, guid: d61baff8d4ade1543bee6a50525dd0e9, type: 3}
-  TimeToAdd: 3
-  SpeedModifier: 1
-  PointValue: 3
+  weightCategory: 4
   Type: Cuppa
   animationOverrideController: {fileID: 22100000, guid: bb9ad5fea5843c147b6129fc1155c504,
     type: 2}
