@@ -23,7 +23,7 @@ public class Scarecrow : MonoBehaviour
     {
         yield return new WaitForSeconds(lifeTime);
 
-        enabled = false;
+        Destroy(gameObject);
     }
 
     private void OnDisable()

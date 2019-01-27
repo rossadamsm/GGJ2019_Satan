@@ -43,7 +43,7 @@ public class PriestAI : MonoBehaviour
         {
             foreach (var scarecrow in scarecrows)
             {
-                if (Vector2.Distance(player.transform.position, scarecrow.transform.position) < 50)
+                if (Vector2.Distance(transform.position, scarecrow.transform.position) < 50)
                 {
                     scareCrowToChase = scarecrow;
                     myState = PriestState.Chase;
@@ -87,10 +87,13 @@ public class PriestAI : MonoBehaviour
             animator.SetBool("walk", false);
         animator.SetBool("walk", true);
 
-        if (Move.x < 0)
-            transform.localScale = new Vector3(-1, 1, 1);
-        else
-            transform.localScale = new Vector3(1, 1, 1);
+        if (scareCrowToChase == null)
+        {
+            if (Move.x < 0)
+                transform.localScale = new Vector3(-1, 1, 1);
+            else
+                transform.localScale = new Vector3(1, 1, 1);
+        }
 
         rb.velocity = Move * speed;
     }
@@ -132,5 +135,10 @@ public class PriestAI : MonoBehaviour
         Move = roamDirection;
         Move.Normalize();
         previousState = PriestState.Roam;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, 50);
     }
 }

@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
+    public GameObject scareCrowPrefab;
+
 	public Rigidbody2D rb;
 	public Animator animator;
 	public float speed;
@@ -29,8 +31,11 @@ public class CharacterController : MonoBehaviour
     public AudioClip hell;
     public AudioClip sneak;
 
-	// Start is called before the first frame update
-	void Start()
+    private bool haveAScareCrowToDrop = true;
+
+
+    // Start is called before the first frame update
+    void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
 		animator = GetComponent<Animator>();
@@ -150,5 +155,20 @@ public class CharacterController : MonoBehaviour
 		{
 			GameMaster.instance.satanTaskManager.RemindWantedItem();
 		}
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            if (scareCrowPrefab != null && haveAScareCrowToDrop)
+            {
+                Instantiate(scareCrowPrefab, transform.position, Quaternion.identity);
+                haveAScareCrowToDrop = false;
+                Invoke("ResetScareCrow", 10);
+            }
+        }
 	}
+
+    private void ResetScareCrow()
+    {
+        haveAScareCrowToDrop = true;
+    }
 }
