@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.Collections;
 
 public class GameMaster : MonoBehaviour
 {
@@ -25,6 +26,8 @@ public class GameMaster : MonoBehaviour
 	private GameObject collectablePrefab;
     [SerializeField]
 	private GameObject priestPrefab;
+	[SerializeField]
+	private GameObject scoreMultiplier;
 
     [SerializeField] private PickupScriptableObject[] collectableData;
 
@@ -53,6 +56,7 @@ public class GameMaster : MonoBehaviour
 			priestScoreCounter = priestSpawnInterval;
 
 			Instantiate(priestPrefab, spawnAreas[Random.Range(0, spawnAreas.Length)].GetPositionWithinArea(), Quaternion.identity);
+			scoreMultiplier.SetActive(false);
 
 		}
 		else if (instance != this)
@@ -136,8 +140,20 @@ public class GameMaster : MonoBehaviour
 		SceneManager.LoadScene("GameOver");
 	}
 
+	public void ShowScoreMultiplier()
+	{
+		StartCoroutine(ShowMultiplier(0.5f));
+	}
+
 	public void ChangeTimer(float delta)
 	{
 		timer += delta;
+	}
+
+	private IEnumerator ShowMultiplier(float timeToShow)
+	{
+		scoreMultiplier.SetActive(true);
+		yield return new WaitForSeconds(timeToShow);
+		scoreMultiplier.SetActive(false);
 	}
 }

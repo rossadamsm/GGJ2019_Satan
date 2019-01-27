@@ -40,6 +40,12 @@ public class SatanTaskManager : MonoBehaviour
         cloudRendererImageLocation.gameObject.SetActive(true);
     }
 
+	public void RemindWantedItem()
+	{
+		ShowSpeechCloud();
+		StartCoroutine(HideSpeechBubbleAfterX(2));
+	}
+
     private IEnumerator HideSpeechBubbleAfterX(float timeToHide)
     {
         yield return new WaitForSeconds(timeToHide);

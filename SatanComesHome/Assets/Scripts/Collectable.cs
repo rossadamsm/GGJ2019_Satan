@@ -105,6 +105,7 @@ public class Collectable : MonoBehaviour
 		Debug.Log("Place in hell");
 		if (pickupObject.Type == GameMaster.instance.satanTaskManager.CurrentTask)
 		{
+			GameMaster.instance.ShowScoreMultiplier();
 			GameMaster.instance.ChangeTimer(pickupObject.TimeToAdd * 2);
 			GameMaster.instance.ChangeScore(pickupObject.PointValue * 2);
 		}

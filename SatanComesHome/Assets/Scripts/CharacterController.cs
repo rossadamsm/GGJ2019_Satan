@@ -37,7 +37,7 @@ public class CharacterController : MonoBehaviour
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		anchor = GetComponentInChildren<Transform>();
 
-		GameMaster.instance.SetNewTarget();
+		//GameMaster.instance.SetNewTarget();
         SoundManager.instance.PlayLoop(hell);
 	}
 
@@ -127,6 +127,7 @@ public class CharacterController : MonoBehaviour
 				currentPickedupCollectable.Drop();
 				if (inHell)
 				{
+					GameMaster.instance.satanTaskManager.HideSpeechCloud();
 					currentPickedupCollectable.PlaceInHell();
 					GameMaster.instance.SetNewTarget();
 				}
@@ -141,6 +142,10 @@ public class CharacterController : MonoBehaviour
 				PickupScriptableObject CurrObject = currentPickedupCollectable.pickupObject;
 				speed *= CurrObject.SpeedModifier;
 			}
+		}
+		if (Input.GetKeyDown(KeyCode.R))
+		{
+			GameMaster.instance.satanTaskManager.RemindWantedItem();
 		}
 	}
 }
